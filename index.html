@@ -12,81 +12,92 @@
       box-sizing: border-box;
     }
 
+    body {
+      background-color: var(--surface-subtle);
+    }
+
+    /* ── HERO — mobile first ─────────────────────── */
     .hero {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 15px;
-      padding: 24px 216px 16px 272px;
+      gap: var(--spacing-4);                        /* 16px */
+      padding: var(--spacing-6) var(--spacing-4);   /* 24px 16px */
       width: 100%;
-      background-color: #121211;
-      /* Agregar background-image con la imagen de fondo */
+      background-color: var(--surface-subtle);
     }
 
+    /* ── PILL ───────────────────────────────────── */
     .pill {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      background-color: #121211;
-      border: 1px solid #989696;
-      border-radius: 12px;
-      padding: 4px 12px;
+      background-color: var(--surface-subtle);
+      border: var(--pill-base-border-width) solid var(--pill-informative-border);
+      border-radius: var(--pill-base-radius);
+      padding: var(--pill-base-padding-y) var(--pill-base-padding-x);
     }
 
     .pill__text {
       font-family: 'Gotham', sans-serif;
-      font-weight: 900;
-      font-size: 14px;
-      line-height: 24px;
-      letter-spacing: 0.01px;
+      font-weight: var(--typography-weight-bold);
+      font-size: var(--typography-size-sm);
+      line-height: var(--typography-size-2xl);
+      letter-spacing: var(--typography-letter-spacing-button);
       text-transform: uppercase;
-      color: #cbcbcb;
+      color: var(--pill-informative-text);
       white-space: nowrap;
     }
 
+    /* ── HEADING — 36px mobile ──────────────────── */
     .hero__heading {
-      width: 728px;
+      width: 100%;
       font-family: 'Gotham', sans-serif;
       font-weight: 900;
-      font-size: 80px;
-      line-height: 64px;
-      letter-spacing: -3.2px;
+      font-size: 36px;
+      line-height: 1;
+      letter-spacing: -1.5px;
       text-transform: uppercase;
-      color: white;
+      color: var(--text-color-primary);
       text-align: center;
     }
 
+    /* ── SUBTITLE ───────────────────────────────── */
     .hero__subtitle {
       font-family: 'Gotham', sans-serif;
       font-weight: 325;
-      font-size: 20px;
-      line-height: 24px;
+      font-size: var(--typography-size-md);         /* 16px mobile */
+      line-height: var(--spacing-6);                /* 24px */
       letter-spacing: -0.4px;
-      color: #989696;
+      color: var(--text-color-secondary);
       text-align: center;
     }
 
+    /* ── CTA — columna en mobile ────────────────── */
     .hero__cta {
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: center;
-      gap: 12px;
+      gap: var(--spacing-3);
       width: 100%;
     }
 
+    /* ── BOTONES ────────────────────────────────── */
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 20px 28px;
-      border-radius: 9999px;
-      border: 2px solid;
+      width: 100%;
+      max-width: 320px;
+      padding: var(--button-size-xl-padding-y) var(--button-size-xl-padding-x);
+      border-radius: var(--button-base-radius);
+      border: var(--button-base-border-width-md) solid;
       font-family: 'Gotham', sans-serif;
       font-weight: 900;
-      font-size: 16px;
-      line-height: 1.2;
-      letter-spacing: 0.01px;
+      font-size: var(--button-text-size-md);
+      line-height: var(--button-base-line-height);
+      letter-spacing: var(--button-base-letter-spacing);
       text-transform: uppercase;
       white-space: nowrap;
       cursor: pointer;
@@ -94,15 +105,58 @@
     }
 
     .btn--secondary {
-      background-color: transparent;
-      border-color: white;
-      color: white;
+      background-color: var(--button-secondary-bg);
+      border-color: var(--button-secondary-border);
+      color: var(--button-secondary-text);
     }
 
     .btn--primary {
-      background-color: #f98516;
-      border-color: #f98516;
-      color: black;
+      background-color: var(--button-primary-bg);
+      border-color: var(--button-primary-border);
+      color: var(--button-primary-text);
+    }
+
+    /* ── TABLET 768px+ ──────────────────────────── */
+    @media (min-width: 768px) {
+      .hero {
+        padding: var(--spacing-12) var(--spacing-8); /* 48px 32px */
+      }
+
+      .hero__heading {
+        font-size: 56px;
+        line-height: 52px;
+        letter-spacing: -2.2px;
+      }
+
+      .hero__subtitle {
+        font-size: var(--typography-size-xl);        /* 20px */
+      }
+
+      .hero__cta {
+        flex-direction: row;
+        width: auto;
+      }
+
+      .btn {
+        width: auto;
+        max-width: none;
+      }
+    }
+
+    /* ── DESKTOP 1024px+ ────────────────────────── */
+    @media (min-width: 1024px) {
+      .hero {
+        padding: var(--spacing-16) var(--spacing-6); /* 64px 24px */
+        gap: var(--spacing-4);
+      }
+
+      .hero__heading {
+        font-size: var(--typography-size-display-xl); /* 80px */
+        line-height: var(--typography-size-display-lg); /* 64px */
+        letter-spacing: -3.2px;
+        width: 90%;
+        max-width: 900px;
+      }
     }
   </style>
 </head>
