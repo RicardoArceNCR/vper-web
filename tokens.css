@@ -1,15 +1,14 @@
 /* ================================================================
-   VPER Design Tokens — Complete
+   VPER Design Tokens — v2.0 FINAL
    Fuente: Figma Variables Export
    Colecciones: numbers · primitivos · semanticos · componentes
+   Breakpoints: sm=640 md=768 lg=1024 xl=1280
+   Generado automáticamente — no editar manualmente
 ================================================================ */
 
 :root {
 
-  /* ══════════════════════════════════════
-     NUMBERS
-     Valores numéricos base
-  ══════════════════════════════════════ */
+  /* ── NUMBERS ─────────────────────────────────── */
 
   /* Espaciado base */
   --number-md: 16px;
@@ -21,6 +20,12 @@
   --number-3xl: 64px;
   --number-4xl: 96px;
 
+  /* Breakpoints */
+  --number-breakpoint-sm: 640px;
+  --number-breakpoint-md: 768px;
+  --number-breakpoint-lg: 1024px;
+  --number-breakpoint-xl: 1280px;
+
   /* Opacidad */
   --number-opacity-04: 0.04;
   --number-opacity-08: 0.08;
@@ -30,10 +35,7 @@
   --number-opacity-80: 0.8;
   --number-opacity-50: 0.5;
 
-  /* ══════════════════════════════════════
-     PRIMITIVOS
-     Valores base sin semántica
-  ══════════════════════════════════════ */
+  /* ── PRIMITIVOS ────────────────────────────────── */
 
   /* color */
   --color-brand-blue-700: #165C8E;
@@ -93,31 +95,31 @@
   --color-neutral-0: #000000;
 
   /* opacity */
-  --opacity-xs: #000000;  /* color proxy — use numbers/opacity/* for decimal values */
-  --opacity-sm: #000000;  /* color proxy — use numbers/opacity/* for decimal values */
-  --opacity-md: #000000;  /* color proxy — use numbers/opacity/* for decimal values */
-  --opacity-lg: #000000;  /* color proxy — use numbers/opacity/* for decimal values */
-  --opacity-xl: #000000;  /* color proxy — use numbers/opacity/* for decimal values */
-  --opacity-none: #000000;  /* color proxy — use numbers/opacity/* for decimal values */
+  --opacity-xs: rgba(0, 0, 0, 0.0);
+  --opacity-sm: rgba(0, 0, 0, 0.0);
+  --opacity-md: rgba(0, 0, 0, 0.0);
+  --opacity-lg: rgba(0, 0, 0, 0.0);
+  --opacity-xl: rgba(0, 0, 0, 0.0);
+  --opacity-none: rgba(0, 0, 0, 0);
 
-  /* typograpgy */
-  --typograpgy-size-xs: 12px;
-  --typograpgy-size-sm: 14px;
-  --typograpgy-size-md: 16px;
-  --typograpgy-size-lg: 18px;
-  --typograpgy-size-xl: 20px;
-  --typograpgy-size-display: 48px;
-  --typograpgy-weight-regular: 400px;
-  --typograpgy-weight-medium: 500px;
-  --typograpgy-weight-semibold: 600px;
-  --typograpgy-weight-bold: 700px;
-  --typograpgy-size-display-lg: 64px;
-  --typograpgy-size-display-xl: 80px;
-  --typograpgy-size-2xl: 24px;
-  --typograpgy-size-3xl: 28px;
-  --typograpgy-size-4xl: 32px;
-  --typograpgy-size-5xl: 40px;
-  --typograpgy-letter-spacing-button: 0.009999999776482582px;
+  /* typography */
+  --typography-size-xs: 12px;
+  --typography-size-sm: 14px;
+  --typography-size-md: 16px;
+  --typography-size-lg: 18px;
+  --typography-size-xl: 20px;
+  --typography-size-display: 48px;
+  --typography-weight-regular: 400;
+  --typography-weight-medium: 500;
+  --typography-weight-semibold: 600;
+  --typography-weight-bold: 700;
+  --typography-size-display-lg: 64px;
+  --typography-size-display-xl: 80px;
+  --typography-size-2xl: 24px;
+  --typography-size-3xl: 28px;
+  --typography-size-4xl: 32px;
+  --typography-size-5xl: 40px;
+  --typography-letter-spacing-button: 0.01px;
 
   /* radius */
   --radius-none: 0px;
@@ -128,11 +130,11 @@
   --radius-full: 9999px;
 
   /* shadow */
-  --shadow-xs: #000000;
-  --shadow-sm: #000000;
-  --shadow-md: #000000;
-  --shadow-lg: #000000;
-  --shadow-xl: #000000;
+  --shadow-xs: rgba(0, 0, 0, 0.0);
+  --shadow-sm: rgba(0, 0, 0, 0.0);
+  --shadow-md: rgba(0, 0, 0, 0.0);
+  --shadow-lg: rgba(0, 0, 0, 0.0);
+  --shadow-xl: rgba(0, 0, 0, 0.0);
 
   /* spacing */
   --spacing-0: 0px;
@@ -155,10 +157,7 @@
   --border-xl: 12px;
   --border-full: 16px;
 
-  /* ══════════════════════════════════════
-     SEMÁNTICOS
-     Alias con significado
-  ══════════════════════════════════════ */
+  /* ── SEMÁNTICOS ────────────────────────────────── */
 
   /* brand */
   --brand-main: var(--color-brand-orange-500); /* → color/brand/orange/500 */
@@ -179,7 +178,7 @@
   --background-base: var(--color-neutral-50); /* → color/neutral/50 */
   --background-subtle: var(--color-neutral-100); /* → color/neutral/100 */
   --background-strong: var(--color-neutral-200); /* → color/neutral/200 */
-  --background-none: #FFFFFF;
+  --background-none: rgba(255, 255, 255, 0);
 
   /* border */
   --border-default: var(--color-neutral-400); /* → color/neutral/400 */
@@ -234,13 +233,13 @@
   --interaction-link-default: var(--brand-main); /* → brand/main */
   --interaction-link-hover: var(--brand-strong); /* → brand/strong */
   --interaction-link-visited: var(--color-brand-blue-700); /* → color/brand/blue/700 */
-  --interaction-overlay-hover-overlay: #FFFFFF;
-  --interaction-overlay-active-overlay: #FFFFFF;
-  --interaction-hover-subtle: #FFFFFF;
-  --interaction-hover-medium: #FFFFFF;
-  --interaction-hover-strong: #FFFFFF;
-  --interaction-press-subtle: #FFFFFF;
-  --interaction-press-medium: #FFFFFF;
+  --interaction-overlay-hover-overlay: rgba(0, 0, 0, 0.0);
+  --interaction-overlay-active-overlay: rgba(0, 0, 0, 0.0);
+  --interaction-hover-subtle: rgba(0, 0, 0, 0.0);
+  --interaction-hover-medium: rgba(0, 0, 0, 0.0);
+  --interaction-hover-strong: rgba(0, 0, 0, 0.0);
+  --interaction-press-subtle: rgba(0, 0, 0, 0.0);
+  --interaction-press-medium: rgba(0, 0, 0, 0.0);
   --interaction-focus-ring: var(--brand-main); /* → brand/main */
 
   /* divider */
@@ -251,12 +250,12 @@
   --overlay-hero: var(--opacity-72); /* → opacity/72 */
   --overlay-card: var(--opacity-60); /* → opacity/60 */
   --overlay-modal: var(--opacity-80); /* → opacity/80 */
-  --overlay-scrim: #000000;
-  --overlay-strong: #FFFFFF;
-  --overlay-soft: #FFFFFF;
-  --overlay-hover: var(--color-neutral-900); /* → color/neutral/900 */
-  --overlay-active: var(--color-neutral-900); /* → color/neutral/900 */
-  --overlay-medium: #FFFFFF;
+  --overlay-scrim: rgba(0, 0, 0, 0.72);
+  --overlay-strong: rgba(0, 0, 0, 0.01);
+  --overlay-soft: rgba(0, 0, 0, 0.0);
+  --overlay-hover: rgba(0, 0, 0, 0.0);
+  --overlay-active: rgba(0, 0, 0, 0.0);
+  --overlay-medium: rgba(0, 0, 0, 0.01);
 
   /* icon */
   --icon-subtle: var(--color-neutral-300); /* → color/neutral/300 */
@@ -271,10 +270,7 @@
   --layout-header-navbar-padding-x: var(--spacing-6); /* → spacing/6 */
   --layout-header-navbar-gap-x: var(--spacing-4); /* → spacing/4 */
 
-  /* ══════════════════════════════════════
-     COMPONENTES
-     Tokens por componente
-  ══════════════════════════════════════ */
+  /* ── COMPONENTES ───────────────────────────────── */
 
   /* button */
   --button-primary-bg-hover: var(--brand-strong); /* → brand/strong */
@@ -293,9 +289,9 @@
   --button-text-size-sm: 14px;
   --button-text-size-md: 16px;
   --button-text-size-lg: 18px;
-  --button-base-font-weight: var(--typograpgy-weight-medium); /* → typograpgy/weight/medium */
-  --button-base-letter-spacing: var(--typograpgy-letter-spacing-button); /* → typograpgy/letter-spacing/button */
-  --button-base-line-heigt: 1.2000000476837158;
+  --button-base-font-weight: var(--typography-weight-medium); /* → typography/weight/medium */
+  --button-base-letter-spacing: var(--typography-letter-spacing-button); /* → typography/letter-spacing/button */
+  --button-base-line-height: 1.2px;
   --button-size-xl-padding-x: 28px;
   --button-size-xl-padding-y: 20px;
   --button-size-xl-text-size: var(--button-text-size-md); /* → button/text-size/md */
@@ -304,11 +300,11 @@
   --button-primary-focus-ring: var(--focus-ring-color); /* → focus/ring-color */
   --button-secondary-bg-active: var(--interaction-press-subtle); /* → interaction/press/subtle */
   --button-secondary-focus-ring: var(--focus-ring-color); /* → focus/ring-color */
-  --button-disabled-bg: #242424;
+  --button-disabled-bg: var(--surface-disabled); /* → surface/disabled */
   --button-disabled-text: var(--text-color-disabled); /* → text/color/disabled */
   --button-disabled-border: var(--border-disabled); /* → border/disabled */
-  --button-disabled-opacity: 0.4000000059604645;
-  --button-base-trasition: motion/fast;
+  --button-disabled-opacity: 0.4;
+  --button-base-transition: motion/fast;
   --button-base-cursor: motion/fast;
   --button-secondary-border-hover: var(--border-default); /* → border/default */
   --button-secondary-border-active: var(--border-strong); /* → border/strong */
@@ -320,23 +316,36 @@
   --button-primary-text-active: var(--text-color-inverse); /* → text/color/inverse */
   --button-ghost-bg: var(--background-none); /* → background/none */
   --button-ghost-gb-active: var(--interaction-press-subtle); /* → interaction/press/subtle */
-  --button-base-transitios:   background 150ms ease   border 150ms ease   transform 100ms ease;
+  --button-base-transitions:   background 150ms ease   border 150ms ease   transform 100ms ease;
+  --button-size-sm-padding-x: var(--spacing-3); /* → spacing/3 */
+  --button-size-sm-padding-y: var(--spacing-2); /* → spacing/2 */
+  --button-size-sm-text-size: var(--button-text-size-md); /* → button/text-size/md */
+  --button-size-md-padding-x: var(--spacing-4); /* → spacing/4 */
+  --button-size-md-padding-y: var(--spacing-3); /* → spacing/3 */
+  --button-size-md-text-size: var(--button-text-size-md); /* → button/text-size/md */
 
   /* card */
   --card-bg: var(--surface-base); /* → surface/base */
   --card-border: var(--border-subtle); /* → border/subtle */
   --card-shadow: var(--shadow-md); /* → shadow/md */
+  --card-radius: var(--radius-lg); /* → radius/lg */
+  --card-padding: var(--spacing-5); /* → spacing/5 */
 
   /* input */
   --input-placeholder: var(--text-color-tertiary); /* → text/color/tertiary */
   --input-bg: var(--surface-base); /* → surface/base */
   --input-border: var(--border-default); /* → border/default */
   --input-text: var(--text-color-primary); /* → text/color/primary */
+  --input-radius: var(--radius-md); /* → radius/md */
+  --input-padding-x: var(--spacing-4); /* → spacing/4 */
+  --input-padding-y: var(--spacing-3); /* → spacing/3 */
 
   /* nav */
   --nav-bg: var(--surface-base); /* → surface/base */
   --nav-border: var(--border-subtle); /* → border/subtle */
   --nav-shadow: var(--shadow-sm); /* → shadow/sm */
+  --nav-item-color: var(--text-color-secondary); /* → text/color/secondary */
+  --nav-item-color-active: var(--brand-main); /* → brand/main */
 
   /* hero */
   --hero-text-color: var(--text-color-inverse); /* → text/color/inverse */
@@ -353,7 +362,7 @@
   --pill-text-size: 12px;
   --pill-text-line-height: 12px;
   --pill-text-weight: 700;
-  --pill-text-letter-spacing: 3;
+  --pill-text-letter-spacing: 3px;
   --pill-base-radius: var(--radius-lg); /* → radius/lg */
   --pill-base-border-width: 1px;
   --pill-base-padding-x: var(--spacing-3); /* → spacing/3 */
@@ -363,5 +372,22 @@
   --pill-informative-border: var(--color-neutral-700); /* → color/neutral/700 */
   --pill-informative-text: var(--color-neutral-800); /* → color/neutral/800 */
   --pill-sm: 0;
+  --pill-base-font-size: var(--typography-size-sm); /* → typography/size/sm */
+  --pill-base-font-weight: var(--typography-weight-semibold); /* → typography/weight/semibold */
+
+  /* ── MEDIA QUERY HELPERS ───────────────────────── */
+  /* Uso: @media (min-width: var(--bp-md)) { ... } */
+  --bp-sm: 640px;
+  --bp-md: 768px;
+  --bp-lg: 1024px;
+  --bp-xl: 1280px;
 
 }
+
+/* ── MEDIA QUERIES PREDEFINIDOS ─────────────────────── */
+/* Copiá estos en tu CSS para usar los breakpoints del sistema */
+
+/* @media (min-width: 640px)  { } /* sm  */
+/* @media (min-width: 768px)  { } /* md  */
+/* @media (min-width: 1024px) { } /* lg  */
+/* @media (min-width: 1280px) { } /* xl  */

@@ -1,10 +1,24 @@
 // ================================================================
-// VPER Design Tokens — Bootstrap/SCSS Variables
-// Fuente: Figma Variables Export — COMPLETO
+// VPER Design Tokens — Bootstrap/SCSS v2.0 FINAL
+// Generado automáticamente — no editar manualmente
 // ================================================================
 
-// ── Colores Primitivos ─────────────────────────────────────────
+// ── Breakpoints ────────────────────────────────────────────────
+$bp-sm:  640px;
+$bp-md:  768px;
+$bp-lg:  1024px;
+$bp-xl:  1280px;
 
+// Bootstrap grid breakpoints override
+$grid-breakpoints: (
+  xs: 0,
+  sm: $bp-sm,
+  md: $bp-md,
+  lg: $bp-lg,
+  xl: $bp-xl,
+);
+
+// ── Colores Primitivos ─────────────────────────────────────────
 // 0
 $color-0: #000000;
 
@@ -90,7 +104,7 @@ $color-red-800: #872E2D;
 $color-red-900: #712C2B;
 $color-red-950: #3D1312;
 
-// neutral
+// Neutral
 $color-neutral-50: #050505;
 $color-neutral-100: #121211;
 $color-neutral-200: #111111;
@@ -152,33 +166,33 @@ $divider-strong: #242424;
 $surface-base: #050505;
 $focus-ring-color: #F98516;
 $focus-ring-offset: #050505;
-$interaction-overlay-hover-overlay: #FFFFFF;
-$interaction-overlay-active-overlay: #FFFFFF;
+$interaction-overlay-hover-overlay: rgba(0, 0, 0, 0.0);
+$interaction-overlay-active-overlay: rgba(0, 0, 0, 0.0);
 $icon-subtle: #181818;
 $brand-contrast: #000000;
-$overlay-scrim: #000000;
-$overlay-strong: #FFFFFF;
-$overlay-soft: #FFFFFF;
+$overlay-scrim: rgba(0, 0, 0, 0.72);
+$overlay-strong: rgba(0, 0, 0, 0.01);
+$overlay-soft: rgba(0, 0, 0, 0.0);
 $focus-ring-offset-color: #050505;
-$overlay-hover: #FFFFFF;
-$overlay-active: #FFFFFF;
+$overlay-hover: rgba(0, 0, 0, 0.0);
+$overlay-active: rgba(0, 0, 0, 0.0);
 $surface-disabled: #242424;
 $border-disabled: #666666;
-$background-none: #FFFFFF;
+$background-none: rgba(255, 255, 255, 0);
 $brand-stronger: #7C3512;
-$interaction-hover-subtle: #FFFFFF;
-$interaction-hover-medium: #FFFFFF;
-$interaction-hover-strong: #FFFFFF;
-$interaction-press-subtle: #FFFFFF;
-$interaction-press-medium: #FFFFFF;
+$interaction-hover-subtle: rgba(0, 0, 0, 0.0);
+$interaction-hover-medium: rgba(0, 0, 0, 0.0);
+$interaction-hover-strong: rgba(0, 0, 0, 0.0);
+$interaction-press-subtle: rgba(0, 0, 0, 0.0);
+$interaction-press-medium: rgba(0, 0, 0, 0.0);
 $interaction-focus-ring: #F98516;
-$border-none: #000000;
+$border-none: rgba(0, 0, 0, 0);
 $focus-ring-focus-ring-offset-color: #050505;
 $icon-primary: #F98516;
 $icon-secondary: #C24F0C;
-$overlay-medium: #FFFFFF;
+$overlay-medium: rgba(0, 0, 0, 0.01);
 
-// ── Spacing ────────────────────────────────────────────────────
+// ── Espaciado ──────────────────────────────────────────────────
 $spacing-0: 0px;
 $spacing-1: 4px;
 $spacing-10: 40px;
@@ -219,15 +233,27 @@ $font-weight-regular: 400;
 $font-weight-semibold: 600;
 
 // ── Bootstrap Overrides ────────────────────────────────────────
-$primary:    $color-orange-500;
-$secondary:  $color-neutral-700;
-$success:    $color-green-600;
-$warning:    $color-orange-600;
-$danger:     $color-red-600;
-$info:       $color-blue-600;
-$body-bg:    $color-neutral-0;
-$body-color: $color-neutral-900;
-$border-radius: $radius-md;
-$border-radius-pill: $radius-full;
+$primary:             $color-orange-500;
+$secondary:           $color-neutral-700;
+$success:             $color-green-600;
+$warning:             $color-orange-600;
+$danger:              $color-red-600;
+$info:                $color-blue-600;
+$body-bg:             $color-neutral-0;
+$body-color:          $color-neutral-900;
+$border-radius:       $radius-md;
+$border-radius-pill:  $radius-full;
 $font-family-sans-serif: Gotham, sans-serif;
-$btn-border-radius: $radius-full;
+$btn-border-radius:   $radius-full;
+
+// ── Mixin responsive (mobile-first) ────────────────────────────
+@mixin respond-to($bp) {
+  @if $bp == 'sm'  { @media (min-width: $bp-sm)  { @content; } }
+  @if $bp == 'md'  { @media (min-width: $bp-md)  { @content; } }
+  @if $bp == 'lg'  { @media (min-width: $bp-lg)  { @content; } }
+  @if $bp == 'xl'  { @media (min-width: $bp-xl)  { @content; } }
+}
+
+// Uso:
+// .hero { padding: 24px 16px; }
+// @include respond-to('md') { .hero { padding: 48px 32px; } }

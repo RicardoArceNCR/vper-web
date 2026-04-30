@@ -1,14 +1,17 @@
 /** @type {import('tailwindcss').Config} */
-
-// VPER Design Tokens — Tailwind Config
-// Fuente: Figma Variables Export — COMPLETO
+// VPER Design Tokens — Tailwind v2.0 FINAL
+// Generado automáticamente — no editar manualmente
 
 module.exports = {
   content: ['./**/*.{html,js,vue,jsx,tsx}'],
   theme: {
+    screens: {
+      'sm':  '640px',
+      'md':  '768px',
+      'lg':  '1024px',
+      'xl':  '1280px',
+    },
     extend: {
-
-      // ── Colores Primitivos ───────────────────────────────
       colors: {
         '0': '#000000',
         '100': '#121211',
@@ -73,10 +76,9 @@ module.exports = {
           '900': '#712C2B',
           '950': '#3D1312',
         },
-
         // Semánticos
         'background-base': '#050505',
-        'background-none': '#FFFFFF',
+        'background-none': 'rgba(255, 255, 255, 0)',
         'background-page': '#000000',
         'background-strong': '#111111',
         'background-subtle': '#121211',
@@ -84,7 +86,7 @@ module.exports = {
         'border-default': '#242424',
         'border-disabled': '#666666',
         'border-inverse': '#FFFFFF',
-        'border-none': '#000000',
+        'border-none': 'rgba(0, 0, 0, 0)',
         'border-strong': '#333333',
         'border-subtle': '#181818',
         'brand-contrast': '#000000',
@@ -120,22 +122,22 @@ module.exports = {
         'icon-secondary': '#C24F0C',
         'icon-subtle': '#181818',
         'interaction-focus-ring': '#F98516',
-        'interaction-hover-medium': '#FFFFFF',
-        'interaction-hover-strong': '#FFFFFF',
-        'interaction-hover-subtle': '#FFFFFF',
+        'interaction-hover-medium': 'rgba(0, 0, 0, 0.0)',
+        'interaction-hover-strong': 'rgba(0, 0, 0, 0.0)',
+        'interaction-hover-subtle': 'rgba(0, 0, 0, 0.0)',
         'interaction-link-default': '#F98516',
         'interaction-link-hover': '#C24F0C',
         'interaction-link-visited': '#165C8E',
-        'interaction-overlay-active-overlay': '#FFFFFF',
-        'interaction-overlay-hover-overlay': '#FFFFFF',
-        'interaction-press-medium': '#FFFFFF',
-        'interaction-press-subtle': '#FFFFFF',
-        'overlay-active': '#FFFFFF',
-        'overlay-hover': '#FFFFFF',
-        'overlay-medium': '#FFFFFF',
-        'overlay-scrim': '#000000',
-        'overlay-soft': '#FFFFFF',
-        'overlay-strong': '#FFFFFF',
+        'interaction-overlay-active-overlay': 'rgba(0, 0, 0, 0.0)',
+        'interaction-overlay-hover-overlay': 'rgba(0, 0, 0, 0.0)',
+        'interaction-press-medium': 'rgba(0, 0, 0, 0.0)',
+        'interaction-press-subtle': 'rgba(0, 0, 0, 0.0)',
+        'overlay-active': 'rgba(0, 0, 0, 0.0)',
+        'overlay-hover': 'rgba(0, 0, 0, 0.0)',
+        'overlay-medium': 'rgba(0, 0, 0, 0.01)',
+        'overlay-scrim': 'rgba(0, 0, 0, 0.72)',
+        'overlay-soft': 'rgba(0, 0, 0, 0.0)',
+        'overlay-strong': 'rgba(0, 0, 0, 0.01)',
         'surface-base': '#050505',
         'surface-container': '#111111',
         'surface-disabled': '#242424',
@@ -148,8 +150,6 @@ module.exports = {
         'text-color-secondary': '#989696',
         'text-color-tertiary': '#666666',
       },
-
-      // ── Tipografía ───────────────────────────────────────
       fontSize: {
         '2xl': '24px',
         '3xl': '28px',
@@ -164,21 +164,17 @@ module.exports = {
         'xl': '20px',
         'xs': '12px',
       },
-
       fontWeight: {
         'bold': '700',
         'medium': '500',
         'regular': '400',
         'semibold': '600',
       },
-
       letterSpacing: {
         'button': '0.01px',
         'display': '-3.2px',
         'tight': '-0.4px',
       },
-
-      // ── Espaciado ────────────────────────────────────────
       spacing: {
         '0': '0px',
         '1': '4px',
@@ -192,8 +188,6 @@ module.exports = {
         '6': '24px',
         '8': '32px',
       },
-
-      // ── Radius ───────────────────────────────────────────
       borderRadius: {
         'full': '9999px',
         'lg': '12px',
@@ -202,12 +196,9 @@ module.exports = {
         'sm': '4px',
         'xl': '16px',
       },
-
-      // ── Familias tipográficas ────────────────────────────
       fontFamily: {
         'gotham': ['Gotham', 'sans-serif'],
       },
-
     },
   },
   plugins: [],
