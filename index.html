@@ -475,6 +475,368 @@
         max-width: 900px;
       }
     }
+    /* ══════════════════════════════════════════════
+       SELECTED WORK — sección
+    ══════════════════════════════════════════════ */
+    .work {
+      width: 100%;
+      padding: var(--spacing-16) var(--layout-header-padding-x);
+      background-color: var(--surface-subtle);
+    }
+
+    /* ── Header row — 3 columnas en desktop ── */
+    .work__header {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-6);
+      margin-bottom: var(--spacing-10);
+    }
+
+    @media (min-width: 768px) {
+      .work__header {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        align-items: center;
+        gap: var(--spacing-8);
+      }
+    }
+
+    .work__title {
+      font-family: 'Gotham', sans-serif;
+      font-weight: 900;
+      font-size: var(--typography-size-display);   /* 48px */
+      line-height: 1.05;
+      letter-spacing: -1.5px;
+      text-transform: uppercase;
+      color: var(--text-color-primary);
+    }
+
+    /* punto naranja al final del título */
+    .work__title::after {
+      content: '.';
+      color: var(--brand-main);
+    }
+
+    .work__subtitle {
+      font-family: 'Gotham', sans-serif;
+      font-weight: var(--typography-weight-regular);
+      font-size: var(--typography-size-md);
+      line-height: var(--spacing-6);
+      letter-spacing: -0.2px;
+      color: var(--text-color-secondary);
+      text-align: center;
+    }
+
+    /* ── Filtros ── */
+    .work__filters {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      gap: var(--spacing-2);
+      justify-content: flex-start;
+    }
+
+    @media (min-width: 768px) {
+      .work__filters {
+        justify-content: flex-end;
+      }
+    }
+
+    .work-filter {
+      display: inline-flex;
+      align-items: center;
+      padding: var(--pill-base-padding-y) var(--pill-base-padding-x);
+      border-radius: var(--pill-base-radius);
+      border: var(--pill-base-border-width) solid var(--border-inverse);
+      background: transparent;
+      font-family: 'Gotham', sans-serif;
+      font-weight: var(--typography-weight-bold);
+      font-size: var(--typography-size-sm);
+      letter-spacing: var(--typography-letter-spacing-button);
+      text-transform: uppercase;
+      color: var(--text-color-primary);
+      cursor: pointer;
+      transition: color 150ms ease, border-color 150ms ease, background-color 150ms ease;
+      white-space: nowrap;
+    }
+
+    .work-filter:hover {
+      background-color: rgba(255, 255, 255, 0.08);
+    }
+
+    .work-filter.is-active {
+      background-color: var(--brand-main);
+      border-color: var(--brand-main);
+      color: var(--brand-contrast);
+    }
+
+    .work-filter:focus-visible {
+      outline: 2px solid var(--focus-ring-color);
+      outline-offset: 2px;
+    }
+
+    /* ── Grid ── */
+    .work__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--spacing-6);
+    }
+
+    /* ── Card ── */
+    .work-card {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-4);
+      cursor: pointer;
+      transition: opacity 250ms ease, transform 250ms ease;
+    }
+
+    .work-card.is-hidden {
+      opacity: 0;
+      transform: scale(0.97);
+      pointer-events: none;
+    }
+
+    .work-card__media {
+      aspect-ratio: 4 / 3;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .work-card__placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 400ms ease;
+    }
+
+    .work-card:hover .work-card__placeholder {
+      transform: scale(1.03);
+    }
+
+    .work-card__placeholder-label {
+      font-family: 'Gotham', sans-serif;
+      font-weight: 900;
+      font-size: var(--typography-size-sm);
+      letter-spacing: var(--typography-letter-spacing-button);
+      text-transform: uppercase;
+      color: var(--text-color-secondary);
+      opacity: 0.4;
+    }
+
+    /* fondo uniforme para todas las cards */
+    .work-card__placeholder {
+      background-color: var(--surface-raised);
+    }
+
+    /* tag de categoría sobre la imagen */
+    .work-card__tag {
+      display: inline-block;
+      align-self: flex-start;
+      padding: var(--pill-base-padding-y) var(--pill-base-padding-x);
+      border-radius: var(--pill-base-radius);
+      border: var(--pill-base-border-width) solid var(--border-subtle);
+      font-family: 'Gotham', sans-serif;
+      font-weight: var(--typography-weight-bold);
+      font-size: var(--typography-size-xs, 12px);
+      letter-spacing: var(--typography-letter-spacing-button);
+      text-transform: uppercase;
+      color: var(--text-color-secondary);
+    }
+
+    .work-card__body {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-1);
+    }
+
+    .work-card__title {
+      font-family: 'Gotham', sans-serif;
+      font-weight: 900;
+      font-size: var(--typography-size-xl);
+      line-height: 1.1;
+      letter-spacing: -0.3px;
+      color: var(--text-color-primary);
+      text-transform: uppercase;
+    }
+
+    .work-card__subtitle {
+      font-family: 'Gotham', sans-serif;
+      font-weight: var(--typography-weight-regular);
+      font-size: var(--typography-size-sm);
+      line-height: var(--spacing-6);
+      color: var(--text-color-secondary);
+    }
+
+    /* ── Responsive ── */
+    @media (min-width: 640px) {
+      .work__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 768px) {
+      .work {
+        padding: var(--spacing-16) var(--spacing-8);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .work {
+        padding: var(--spacing-16) var(--spacing-6);
+        max-width: 1280px;
+        margin: 0 auto;
+      }
+
+      .work__grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--spacing-8);
+      }
+    }
+
+    /* ══════════════════════════════════════════════
+       CONTACT — sección
+    ══════════════════════════════════════════════ */
+    .contact {
+      width: 100%;
+      background-color: var(--surface-base);
+      padding: var(--spacing-16) var(--layout-header-padding-x);
+    }
+
+    .contact__inner {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-12);
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    .contact__title {
+      font-family: 'Gotham', sans-serif;
+      font-weight: 900;
+      font-size: var(--typography-size-display);
+      line-height: 1.05;
+      letter-spacing: -1.5px;
+      text-transform: uppercase;
+      color: var(--text-color-primary);
+      margin-bottom: var(--spacing-4);
+    }
+
+    .contact__title::after {
+      content: '.';
+      color: var(--brand-main);
+    }
+
+    .contact__desc {
+      font-family: 'Gotham', sans-serif;
+      font-weight: var(--typography-weight-regular);
+      font-size: var(--typography-size-md);
+      line-height: var(--spacing-6);
+      letter-spacing: -0.2px;
+      color: var(--text-color-secondary);
+    }
+
+    .contact__form {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-5);
+    }
+
+    .contact__row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--spacing-5);
+    }
+
+    .contact__field {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-2);
+    }
+
+    .contact__label {
+      font-family: 'Gotham', sans-serif;
+      font-weight: var(--typography-weight-medium);
+      font-size: var(--typography-size-sm);
+      letter-spacing: var(--typography-letter-spacing-button);
+      text-transform: uppercase;
+      color: var(--text-color-secondary);
+    }
+
+    .contact__input {
+      width: 100%;
+      background-color: var(--surface-raised);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: var(--spacing-3) var(--spacing-4);
+      font-family: 'Gotham', sans-serif;
+      font-weight: var(--typography-weight-regular);
+      font-size: var(--typography-size-md);
+      color: var(--text-color-primary);
+      outline: none;
+      transition: border-color 150ms ease;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .contact__input::placeholder {
+      color: var(--text-color-secondary);
+      opacity: 0.4;
+    }
+
+    .contact__input:focus {
+      border-color: var(--border-brand);
+    }
+
+    .contact__textarea {
+      resize: vertical;
+      min-height: 140px;
+    }
+
+    .contact__submit {
+      width: 100%;
+      max-width: none;
+    }
+
+    @media (min-width: 640px) {
+      .contact__row {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .contact {
+        padding: var(--spacing-16) var(--spacing-8);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .contact {
+        padding: var(--spacing-16) var(--spacing-6);
+      }
+
+      .contact__inner {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: var(--spacing-16);
+      }
+
+      .contact__info {
+        flex: 0 0 360px;
+      }
+
+      .contact__form {
+        flex: 1;
+      }
+
+      .contact__submit {
+        width: 100%;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -560,6 +922,137 @@
     </div>
   </section>
 
+  <!-- Selected Work -->
+  <section class="work" aria-labelledby="work-title">
+
+    <div class="work__header">
+      <h2 class="work__title" id="work-title">Selected Work</h2>
+      <p class="work__subtitle">Proyectos que hablan por sí solos.</p>
+      <div class="work__filters" role="group" aria-label="Filtrar por categoría">
+        <button class="work-filter is-active" data-filter="all">Todos</button>
+        <button class="work-filter" data-filter="branding">Branding</button>
+        <button class="work-filter" data-filter="diseno">Diseño</button>
+        <button class="work-filter" data-filter="campanas">Campañas</button>
+      </div>
+    </div>
+
+    <div class="work__grid" id="work-grid">
+
+      <article class="work-card" data-category="branding">
+        <div class="work-card__media">
+          <div class="work-card__placeholder">
+            <span class="work-card__placeholder-label">4 × 3</span>
+          </div>
+        </div>
+        <div class="work-card__body">
+          <span class="work-card__tag">Branding</span>
+          <h3 class="work-card__title">Brand Strategy</h3>
+          <p class="work-card__subtitle">Brand Campaign</p>
+        </div>
+      </article>
+
+      <article class="work-card" data-category="diseno">
+        <div class="work-card__media">
+          <div class="work-card__placeholder">
+            <span class="work-card__placeholder-label">4 × 3</span>
+          </div>
+        </div>
+        <div class="work-card__body">
+          <span class="work-card__tag">Diseño</span>
+          <h3 class="work-card__title">Brand Strategy</h3>
+          <p class="work-card__subtitle">Brand Campaign</p>
+        </div>
+      </article>
+
+      <article class="work-card" data-category="campanas">
+        <div class="work-card__media">
+          <div class="work-card__placeholder">
+            <span class="work-card__placeholder-label">4 × 3</span>
+          </div>
+        </div>
+        <div class="work-card__body">
+          <span class="work-card__tag">Campañas</span>
+          <h3 class="work-card__title">Brand Strategy</h3>
+          <p class="work-card__subtitle">Brand Campaign</p>
+        </div>
+      </article>
+
+      <article class="work-card" data-category="branding">
+        <div class="work-card__media">
+          <div class="work-card__placeholder">
+            <span class="work-card__placeholder-label">4 × 3</span>
+          </div>
+        </div>
+        <div class="work-card__body">
+          <span class="work-card__tag">Branding</span>
+          <h3 class="work-card__title">Brand Strategy</h3>
+          <p class="work-card__subtitle">Brand Campaign</p>
+        </div>
+      </article>
+
+      <article class="work-card" data-category="diseno">
+        <div class="work-card__media">
+          <div class="work-card__placeholder">
+            <span class="work-card__placeholder-label">4 × 3</span>
+          </div>
+        </div>
+        <div class="work-card__body">
+          <span class="work-card__tag">Diseño</span>
+          <h3 class="work-card__title">Brand Strategy</h3>
+          <p class="work-card__subtitle">Brand Campaign</p>
+        </div>
+      </article>
+
+      <article class="work-card" data-category="campanas">
+        <div class="work-card__media">
+          <div class="work-card__placeholder">
+            <span class="work-card__placeholder-label">4 × 3</span>
+          </div>
+        </div>
+        <div class="work-card__body">
+          <span class="work-card__tag">Campañas</span>
+          <h3 class="work-card__title">Brand Strategy</h3>
+          <p class="work-card__subtitle">Brand Campaign</p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact" id="contact" aria-labelledby="contact-title">
+    <div class="contact__inner">
+
+      <div class="contact__info">
+        <h2 class="contact__title" id="contact-title">Contact</h2>
+        <p class="contact__desc">¿Tenés un proyecto en mente? Escribinos y lo hacemos realidad juntos.</p>
+      </div>
+
+      <form class="contact__form" novalidate>
+        <div class="contact__row">
+          <div class="contact__field">
+            <label class="contact__label" for="contact-name">Name</label>
+            <input class="contact__input" type="text" id="contact-name" name="name" autocomplete="given-name">
+          </div>
+          <div class="contact__field">
+            <label class="contact__label" for="contact-surname">Surname</label>
+            <input class="contact__input" type="text" id="contact-surname" name="surname" autocomplete="family-name">
+          </div>
+        </div>
+        <div class="contact__field">
+          <label class="contact__label" for="contact-email">Email</label>
+          <input class="contact__input" type="email" id="contact-email" name="email" autocomplete="email">
+        </div>
+        <div class="contact__field">
+          <label class="contact__label" for="contact-message">Message</label>
+          <textarea class="contact__input contact__textarea" id="contact-message" name="message" rows="5"></textarea>
+        </div>
+        <button type="submit" class="btn btn--primary contact__submit">Submit</button>
+      </form>
+
+    </div>
+  </section>
+
   <script>
     const hamburger = document.querySelector('.nav__hamburger');
     const menu      = document.querySelector('.nav__menu');
@@ -586,6 +1079,29 @@
         menu.classList.remove('is-open');
         hamburger.focus();
       }
+    });
+
+    // ── Work filter ────────────────────────────────
+    const filters = document.querySelectorAll('.work-filter');
+    const cards   = document.querySelectorAll('.work-card');
+
+    filters.forEach(filter => {
+      filter.addEventListener('click', () => {
+        // actualizar pill activo
+        filters.forEach(f => {
+          f.classList.remove('is-active');
+          f.removeAttribute('aria-pressed');
+        });
+        filter.classList.add('is-active');
+        filter.setAttribute('aria-pressed', 'true');
+
+        const active = filter.dataset.filter;
+
+        cards.forEach(card => {
+          const match = active === 'all' || card.dataset.category === active;
+          card.classList.toggle('is-hidden', !match);
+        });
+      });
     });
   </script>
 
