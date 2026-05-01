@@ -90,7 +90,7 @@
   --color-neutral-500: #333333;
   --color-neutral-600: #666666;
   --color-neutral-700: #989696;
-  --color-neutral-800: #CACACA;
+  --color-neutral-800: #CBCBCB;
   --color-neutral-900: #FFFFFF;
   --color-neutral-0: #000000;
 
@@ -233,13 +233,13 @@
   --interaction-link-default: var(--brand-main); /* → brand/main */
   --interaction-link-hover: var(--brand-strong); /* → brand/strong */
   --interaction-link-visited: var(--color-brand-blue-700); /* → color/brand/blue/700 */
-  --interaction-overlay-hover-overlay: rgba(0, 0, 0, 0.0);
-  --interaction-overlay-active-overlay: rgba(0, 0, 0, 0.0);
-  --interaction-hover-subtle: rgba(0, 0, 0, 0.0);
-  --interaction-hover-medium: rgba(0, 0, 0, 0.0);
-  --interaction-hover-strong: rgba(0, 0, 0, 0.0);
-  --interaction-press-subtle: rgba(0, 0, 0, 0.0);
-  --interaction-press-medium: rgba(0, 0, 0, 0.0);
+  --interaction-overlay-hover-overlay: rgba(0, 0, 0, 0.0008);
+  --interaction-overlay-active-overlay: rgba(0, 0, 0, 0.0012);
+  --interaction-hover-subtle: rgba(0, 0, 0, 0.0004);
+  --interaction-hover-medium: rgba(0, 0, 0, 0.0008);
+  --interaction-hover-strong: rgba(0, 0, 0, 0.0012);
+  --interaction-press-subtle: rgba(0, 0, 0, 0.0008);
+  --interaction-press-medium: rgba(0, 0, 0, 0.0012);
   --interaction-focus-ring: var(--brand-main); /* → brand/main */
 
   /* divider */
@@ -251,11 +251,11 @@
   --overlay-card: var(--opacity-60); /* → opacity/60 */
   --overlay-modal: var(--opacity-80); /* → opacity/80 */
   --overlay-scrim: rgba(0, 0, 0, 0.72);
-  --overlay-strong: rgba(0, 0, 0, 0.01);
-  --overlay-soft: rgba(0, 0, 0, 0.0);
-  --overlay-hover: rgba(0, 0, 0, 0.0);
-  --overlay-active: rgba(0, 0, 0, 0.0);
-  --overlay-medium: rgba(0, 0, 0, 0.01);
+  --overlay-strong: rgba(0, 0, 0, 0.008);
+  --overlay-soft: rgba(0, 0, 0, 0.0042);
+  --overlay-hover: rgba(0, 0, 0, 0.0008);
+  --overlay-active: rgba(0, 0, 0, 0.0012);
+  --overlay-medium: rgba(0, 0, 0, 0.006);
 
   /* icon */
   --icon-subtle: var(--color-neutral-300); /* → color/neutral/300 */
@@ -368,7 +368,7 @@
   --pill-base-padding-x: var(--spacing-3); /* → spacing/3 */
   --pill-base-padding-y: var(--spacing-1); /* → spacing/1 */
   --pill-base-gap: 8px;
-  --pill-informative-bg: var(--overlay-soft); /* → overlay/soft */
+  --pill-informative-bg: rgba(0, 0, 0, 0.0042); /* → overlay/soft */
   --pill-informative-border: var(--color-neutral-700); /* → color/neutral/700 */
   --pill-informative-text: var(--color-neutral-800); /* → color/neutral/800 */
   --pill-sm: 0;

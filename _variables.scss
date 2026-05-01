@@ -47,7 +47,7 @@ $color-600: #666666;
 $color-700: #989696;
 
 // 800
-$color-800: #CACACA;
+$color-800: #CBCBCB;
 
 // 900
 $color-900: #FFFFFF;
@@ -113,7 +113,7 @@ $color-neutral-400: #242424;
 $color-neutral-500: #333333;
 $color-neutral-600: #666666;
 $color-neutral-700: #989696;
-$color-neutral-800: #CACACA;
+$color-neutral-800: #CBCBCB;
 $color-neutral-900: #FFFFFF;
 $color-neutral-0: #000000;
 
@@ -166,31 +166,31 @@ $divider-strong: #242424;
 $surface-base: #050505;
 $focus-ring-color: #F98516;
 $focus-ring-offset: #050505;
-$interaction-overlay-hover-overlay: rgba(0, 0, 0, 0.0);
-$interaction-overlay-active-overlay: rgba(0, 0, 0, 0.0);
+$interaction-overlay-hover-overlay: rgba(0, 0, 0, 0.0008);
+$interaction-overlay-active-overlay: rgba(0, 0, 0, 0.0012);
 $icon-subtle: #181818;
 $brand-contrast: #000000;
 $overlay-scrim: rgba(0, 0, 0, 0.72);
-$overlay-strong: rgba(0, 0, 0, 0.01);
-$overlay-soft: rgba(0, 0, 0, 0.0);
+$overlay-strong: rgba(0, 0, 0, 0.008);
+$overlay-soft: rgba(0, 0, 0, 0.0042);
 $focus-ring-offset-color: #050505;
-$overlay-hover: rgba(0, 0, 0, 0.0);
-$overlay-active: rgba(0, 0, 0, 0.0);
+$overlay-hover: rgba(0, 0, 0, 0.0008);
+$overlay-active: rgba(0, 0, 0, 0.0012);
 $surface-disabled: #242424;
 $border-disabled: #666666;
 $background-none: rgba(255, 255, 255, 0);
 $brand-stronger: #7C3512;
-$interaction-hover-subtle: rgba(0, 0, 0, 0.0);
-$interaction-hover-medium: rgba(0, 0, 0, 0.0);
-$interaction-hover-strong: rgba(0, 0, 0, 0.0);
-$interaction-press-subtle: rgba(0, 0, 0, 0.0);
-$interaction-press-medium: rgba(0, 0, 0, 0.0);
+$interaction-hover-subtle: rgba(0, 0, 0, 0.0004);
+$interaction-hover-medium: rgba(0, 0, 0, 0.0008);
+$interaction-hover-strong: rgba(0, 0, 0, 0.0012);
+$interaction-press-subtle: rgba(0, 0, 0, 0.0008);
+$interaction-press-medium: rgba(0, 0, 0, 0.0012);
 $interaction-focus-ring: #F98516;
 $border-none: rgba(0, 0, 0, 0);
 $focus-ring-focus-ring-offset-color: #050505;
 $icon-primary: #F98516;
 $icon-secondary: #C24F0C;
-$overlay-medium: rgba(0, 0, 0, 0.01);
+$overlay-medium: rgba(0, 0, 0, 0.006);
 
 // ── Espaciado ──────────────────────────────────────────────────
 $spacing-0: 0px;
