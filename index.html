@@ -340,6 +340,99 @@
       outline-offset: 3px;
     }
 
+    /* ══════════════════════════════════════════════
+       LOGO STRIP
+    ══════════════════════════════════════════════ */
+    .logo-strip {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      background-color: var(--background-page);
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: var(--spacing-6) 0;
+    }
+
+    /* fade gradient en bordes */
+    .logo-strip::before,
+    .logo-strip::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 120px;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .logo-strip::before {
+      left: 0;
+      background: linear-gradient(to right, var(--background-page) 0%, transparent 100%);
+    }
+
+    .logo-strip::after {
+      right: 0;
+      background: linear-gradient(to left, var(--background-page) 0%, transparent 100%);
+    }
+
+    /* track: dos listas idénticas en fila → animar -50% = un loop */
+    .logo-strip__track {
+      display: flex;
+      width: max-content;
+      animation: marquee 32s linear infinite;
+    }
+
+    .logo-strip__track:hover {
+      animation-play-state: paused;
+    }
+
+    .logo-strip__list {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      flex-shrink: 0;
+    }
+
+    .logo-strip__item {
+      display: flex;
+      align-items: center;
+      padding: 0 var(--spacing-8);
+      font-family: 'Gotham', sans-serif;
+      font-weight: var(--typography-weight-bold);
+      font-size: var(--typography-size-xl);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--text-color-secondary);
+      white-space: nowrap;
+      transition: color 200ms ease;
+      cursor: default;
+      user-select: none;
+    }
+
+    .logo-strip__item:hover {
+      color: var(--text-color-primary);
+    }
+
+    /* separador · entre logos */
+    .logo-strip__item::after {
+      content: '·';
+      margin-left: var(--spacing-8);
+      color: var(--brand-main);
+      font-weight: var(--typography-weight-black, 900);
+      line-height: 1;
+    }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .logo-strip__track {
+        animation: none;
+      }
+    }
+
     /* ── TABLET 768px+ ──────────────────────────── */
     @media (min-width: 768px) {
       .hero {
@@ -438,6 +531,35 @@
     </div>
 
   </section>
+  <!-- Logo Strip -->
+  <section class="logo-strip" aria-label="Clientes">
+    <div class="logo-strip__track" role="marquee" aria-live="off">
+
+      <!-- Lista original -->
+      <ul class="logo-strip__list">
+        <li class="logo-strip__item">Claro</li>
+        <li class="logo-strip__item">Chevrolet</li>
+        <li class="logo-strip__item">Novasis</li>
+        <li class="logo-strip__item">Vida Nica</li>
+        <li class="logo-strip__item">Drytec</li>
+        <li class="logo-strip__item">Flor de Caña</li>
+        <li class="logo-strip__item">Super Express</li>
+      </ul>
+
+      <!-- Duplicado para loop continuo (oculto a screen readers) -->
+      <ul class="logo-strip__list" aria-hidden="true">
+        <li class="logo-strip__item">Claro</li>
+        <li class="logo-strip__item">Chevrolet</li>
+        <li class="logo-strip__item">Novasis</li>
+        <li class="logo-strip__item">Vida Nica</li>
+        <li class="logo-strip__item">Drytec</li>
+        <li class="logo-strip__item">Flor de Caña</li>
+        <li class="logo-strip__item">Super Express</li>
+      </ul>
+
+    </div>
+  </section>
+
   <script>
     const hamburger = document.querySelector('.nav__hamburger');
     const menu      = document.querySelector('.nav__menu');
