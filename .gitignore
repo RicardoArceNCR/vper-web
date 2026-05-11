@@ -16,3 +16,6 @@ build/
 
 # Claude
 .claude/
+
+# local docs
+primeros pasos/
