@@ -24,7 +24,6 @@
   --opacity-60: 0.6;
   --opacity-72: 0.72;
   --opacity-80: 0.8;
-  --opacity-none: 0;
   --opacity-04: 0.04;
   --opacity-08: 0.08;
   --breakpoint-sm: 640;
@@ -165,12 +164,10 @@
   --motion-fast: 150;
   --motion-normal: 250;
   --motion-slow: 400;
-  --focus-ring: {focus.ring};
   --button-primary-border-active: var(--color-brand-orange-400);
   --button-secondary-bg: var(--background-none);
   --button-secondary-bg-hover: var(--interaction-hover-subtle);
   --button-secondary-bg-active: var(--interaction-press-subtle);
-  --focus-ring: {focus.ring};
   --button-ghost-gb-hover: var(--interaction-hover-subtle);
   --button-ghost-bg: var(--background-none);
   --button-ghost-gb-active: var(--interaction-press-subtle);
@@ -203,7 +200,7 @@
   --pill-informative-bg: var(--overlay-soft);
   --pill-informative-border: var(--color-neutral-700);
   --pill-informative-text: var(--color-neutral-800);
-  --brand-main: var(--color-brand-red-500);
+  --brand-main: var(--color-brand-orange-500);
   --brand-subtle: var(--color-brand-orange-100);
   --brand-strong: var(--color-brand-orange-700);
   --brand-contrast: var(--color-neutral-0);
@@ -222,7 +219,7 @@
   --border-strong: var(--color-neutral-500);
   --border-inverse: var(--color-neutral-900);
   --border-disabled: var(--color-neutral-600);
-  --border-none: var(--opacity-none);
+  --border-none: var(--background-none);
   --feedback-success-bg: var(--color-brand-green-50);
   --feedback-success-border: var(--color-brand-green-200);
   --feedback-success-text: var(--color-brand-green-900);
@@ -311,5 +308,7 @@
   --divider-strong: var(--border-default);
   --icon-primary: var(--brand-main);
   --icon-secondary: var(--brand-strong);
+  --button-primary-focus-ring: var(--focus-ring-color);
+  --button-secondary-focus-ring: var(--focus-ring-color);
   --input-border-focus: var(--border-brand);
 }

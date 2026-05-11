@@ -24,7 +24,7 @@ export default {
       },
       bg: {
         $type: "color",
-        $value: "#d55856",
+        $value: "#f98516",
         filePath: "source/componentes.json",
         isSource: true,
         original: {
@@ -75,7 +75,7 @@ export default {
       },
       border: {
         $type: "color",
-        $value: "#d55856",
+        $value: "#f98516",
         filePath: "source/componentes.json",
         isSource: true,
         original: {
@@ -92,76 +92,19 @@ export default {
       },
       "focus-ring": {
         $type: "color",
-        $value: {
-          color: {
-            $type: "color",
-            $value: "#d55856",
-            filePath: "source/semanticos.json",
-            isSource: true,
-            original: {
-              $type: "color",
-              $value: "{brand.main}",
-            },
-            name: "color",
-            attributes: {},
-            path: ["focus", "ring", "color"],
-          },
-          "focus-ring-offset": {
-            $type: "dimension",
-            $value: "2px",
-            filePath: "source/semanticos.json",
-            isSource: true,
-            original: {
-              $type: "dimension",
-              $value: "2px",
-            },
-            name: "FocusRingFocusRingOffset",
-            attributes: {
-              category: "focus",
-              type: "ring",
-              item: "focus-ring-offset",
-            },
-            path: ["focus", "ring", "focus-ring-offset"],
-          },
-          "focus-ring-width": {
-            $type: "dimension",
-            $value: "2px",
-            filePath: "source/semanticos.json",
-            isSource: true,
-            original: {
-              $type: "dimension",
-              $value: "2px",
-            },
-            name: "FocusRingFocusRingWidth",
-            attributes: {
-              category: "focus",
-              type: "ring",
-              item: "focus-ring-width",
-            },
-            path: ["focus", "ring", "focus-ring-width"],
-          },
-          "focus-ring-offset-color": {
-            $type: "color",
-            $value: "#050505",
-            filePath: "source/semanticos.json",
-            isSource: true,
-            original: {
-              $type: "color",
-              $value: "{background.base}",
-            },
-            name: "focus-ring-offset-color",
-            attributes: {},
-            path: ["focus", "ring", "focus-ring-offset-color"],
-          },
-        },
+        $value: "#f98516",
         filePath: "source/componentes.json",
         isSource: true,
         original: {
           $type: "color",
-          $value: "{focus.ring}",
+          $value: "{focus.ring.color}",
         },
-        name: "focus-ring",
-        attributes: {},
+        name: "ButtonPrimaryFocusRing",
+        attributes: {
+          category: "button",
+          type: "primary",
+          item: "focus-ring",
+        },
         path: ["button", "primary", "focus-ring"],
       },
       "border-hover": {
@@ -321,76 +264,19 @@ export default {
       },
       "focus-ring": {
         $type: "color",
-        $value: {
-          color: {
-            $type: "color",
-            $value: "#d55856",
-            filePath: "source/semanticos.json",
-            isSource: true,
-            original: {
-              $type: "color",
-              $value: "{brand.main}",
-            },
-            name: "color",
-            attributes: {},
-            path: ["focus", "ring", "color"],
-          },
-          "focus-ring-offset": {
-            $type: "dimension",
-            $value: "2px",
-            filePath: "source/semanticos.json",
-            isSource: true,
-            original: {
-              $type: "dimension",
-              $value: "2px",
-            },
-            name: "FocusRingFocusRingOffset",
-            attributes: {
-              category: "focus",
-              type: "ring",
-              item: "focus-ring-offset",
-            },
-            path: ["focus", "ring", "focus-ring-offset"],
-          },
-          "focus-ring-width": {
-            $type: "dimension",
-            $value: "2px",
-            filePath: "source/semanticos.json",
-            isSource: true,
-            original: {
-              $type: "dimension",
-              $value: "2px",
-            },
-            name: "FocusRingFocusRingWidth",
-            attributes: {
-              category: "focus",
-              type: "ring",
-              item: "focus-ring-width",
-            },
-            path: ["focus", "ring", "focus-ring-width"],
-          },
-          "focus-ring-offset-color": {
-            $type: "color",
-            $value: "#050505",
-            filePath: "source/semanticos.json",
-            isSource: true,
-            original: {
-              $type: "color",
-              $value: "{background.base}",
-            },
-            name: "focus-ring-offset-color",
-            attributes: {},
-            path: ["focus", "ring", "focus-ring-offset-color"],
-          },
-        },
+        $value: "#f98516",
         filePath: "source/componentes.json",
         isSource: true,
         original: {
           $type: "color",
-          $value: "{focus.ring}",
+          $value: "{focus.ring.color}",
         },
-        name: "focus-ring",
-        attributes: {},
+        name: "ButtonSecondaryFocusRing",
+        attributes: {
+          category: "button",
+          type: "secondary",
+          item: "focus-ring",
+        },
         path: ["button", "secondary", "focus-ring"],
       },
       "border-hover": {
@@ -1221,7 +1107,7 @@ export default {
     },
     "border-focus": {
       $type: "color",
-      $value: "#d55856",
+      $value: "#f98516",
       filePath: "source/componentes.json",
       isSource: true,
       original: {
@@ -1321,7 +1207,7 @@ export default {
       },
       "color-active": {
         $type: "color",
-        $value: "#d55856",
+        $value: "#f98516",
         filePath: "source/componentes.json",
         isSource: true,
         original: {
@@ -1801,22 +1687,6 @@ export default {
         type: "80",
       },
       path: ["opacity", "80"],
-    },
-    none: {
-      $type: "float",
-      $value: 0,
-      filePath: "source/numbers.json",
-      isSource: true,
-      original: {
-        $type: "float",
-        $value: 0,
-      },
-      name: "OpacityNone",
-      attributes: {
-        category: "opacity",
-        type: "none",
-      },
-      path: ["opacity", "none"],
     },
     "04": {
       $type: "float",
@@ -3862,12 +3732,12 @@ export default {
   brand: {
     main: {
       $type: "color",
-      $value: "#d55856",
+      $value: "#f98516",
       filePath: "source/semanticos.json",
       isSource: true,
       original: {
         $type: "color",
-        $value: "{color.brand.red.500}",
+        $value: "{color.brand.orange.500}",
       },
       name: "BrandMain",
       attributes: {
@@ -4163,7 +4033,7 @@ export default {
     },
     brand: {
       $type: "color",
-      $value: "#d55856",
+      $value: "#f98516",
       filePath: "source/semanticos.json",
       isSource: true,
       original: {
@@ -4211,12 +4081,12 @@ export default {
     },
     none: {
       $type: "string",
-      $value: 0,
+      $value: "rgba(255, 255, 255, 0)",
       filePath: "source/semanticos.json",
       isSource: true,
       original: {
         $type: "string",
-        $value: "{opacity.none}",
+        $value: "{background.none}",
       },
       name: "BorderNone",
       attributes: {
@@ -4674,7 +4544,7 @@ export default {
     ring: {
       color: {
         $type: "color",
-        $value: "#d55856",
+        $value: "#f98516",
         filePath: "source/semanticos.json",
         isSource: true,
         original: {
@@ -4794,7 +4664,7 @@ export default {
     link: {
       default: {
         $type: "color",
-        $value: "#d55856",
+        $value: "#f98516",
         filePath: "source/semanticos.json",
         isSource: true,
         original: {
@@ -4972,7 +4842,7 @@ export default {
     focus: {
       ring: {
         $type: "color",
-        $value: "#d55856",
+        $value: "#f98516",
         filePath: "source/semanticos.json",
         isSource: true,
         original: {
@@ -5188,7 +5058,7 @@ export default {
     },
     primary: {
       $type: "color",
-      $value: "#d55856",
+      $value: "#f98516",
       filePath: "source/semanticos.json",
       isSource: true,
       original: {

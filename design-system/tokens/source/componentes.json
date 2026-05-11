@@ -23,7 +23,7 @@
       },
       "focus-ring": {
         "$type": "color",
-        "$value": "{focus.ring}"
+        "$value": "{focus.ring.color}"
       },
       "border-hover": {
         "$type": "color",
@@ -65,7 +65,7 @@
       },
       "focus-ring": {
         "$type": "color",
-        "$value": "{focus.ring}"
+        "$value": "{focus.ring.color}"
       },
       "border-hover": {
         "$type": "color",

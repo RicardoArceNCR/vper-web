@@ -2,7 +2,7 @@
   "brand": {
     "main": {
       "$type": "color",
-      "$value": "{color.brand.red.500}"
+      "$value": "{color.brand.orange.500}"
     },
     "subtle": {
       "$type": "color",
@@ -94,7 +94,7 @@
     },
     "none": {
       "$type": "string",
-      "$value": "{opacity.none}"
+      "$value": "{background.none}"
     }
   },
   "feedback": {
