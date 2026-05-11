@@ -32,6 +32,30 @@ TYPE_MAP = {
 
 FIGMA_META = {'$scopes', '$libraryName', '$collectionName'}
 
+# ─── FIX 3: Mapa de valores motion → CSS válido ───────────────────────────────
+# Figma exporta aliases de motion como strings no-CSS ("motion/fast").
+# Este mapa los resuelve a valores CSS concretos antes de emitir el token.
+MOTION_MAP = {
+    'motion/fast':   '150ms ease',
+    'motion/normal': '250ms ease',
+    'motion/slow':   '400ms ease',
+}
+
+# ─── FIX 4: Tokens críticos que deben existir en el output ───────────────────
+REQUIRED_TOKENS = {
+    'semanticos': [
+        ['text', 'color', 'primary'],
+        ['surface', 'subtle'],
+        ['brand', 'main'],
+        ['focus', 'ring-color'],
+    ],
+    'primitivos': [
+        ['spacing', '4'],
+        ['spacing', '8'],
+        ['color', 'brand', 'blue', '500'],
+    ],
+}
+
 
 # ─── Color conversion ─────────────────────────────────────────────────────────
 
@@ -81,6 +105,23 @@ def count_tokens(node):
     return sum(count_tokens(v) for v in node.values())
 
 
+# ─── FIX 4: Validación del output ─────────────────────────────────────────────
+
+def validate_output(name, tokens):
+    """Verifica que tokens críticos existan y tengan $value."""
+    required = REQUIRED_TOKENS.get(name, [])
+    for path in required:
+        node = tokens
+        for key in path:
+            if not isinstance(node, dict) or key not in node:
+                print(f'✗ Token faltante: {name} → {"/".join(path)}')
+                sys.exit(1)
+            node = node[key]
+        if not isinstance(node, dict) or '$value' not in node:
+            print(f'✗ Token sin $value: {name} → {"/".join(path)}')
+            sys.exit(1)
+
+
 # ─── Parsers ──────────────────────────────────────────────────────────────────
 
 def parse_raw_value(raw_val, vtype, res_by_mode, mode_id):
@@ -96,11 +137,17 @@ def parse_raw_value(raw_val, vtype, res_by_mode, mode_id):
             a = resolved.get('a', 1.0)
         return color_token(r, g, b, a)
 
+    # FIX 1: Redondear floats para eliminar float noise de Figma
+    # (0.4000000059604645 → 0.4, 1.2000000476837158 → 1.2)
     if vtype == 'FLOAT':
-        return {'$type': 'float', '$value': raw_val}
+        clean = round(raw_val, 4) if isinstance(raw_val, float) else raw_val
+        return {'$type': 'float', '$value': clean}
 
     if vtype == 'STRING':
-        return {'$type': 'string', '$value': str(raw_val)}
+        val = str(raw_val)
+        # FIX 3: Resolver aliases de motion a CSS válido
+        val = MOTION_MAP.get(val, val)
+        return {'$type': 'string', '$value': val}
 
     return {'$type': 'string', '$value': str(raw_val)}
 
@@ -266,11 +313,26 @@ def needs_px(path):
         return True
     if p[0] == 'input' and p[1] in ('radius', 'padding-x', 'padding-y'):
         return True
-    # pill/*/padding-x|padding-y
-    if n >= 3 and p[0] == 'pill' and p[2] in ('padding-x', 'padding-y'):
+    # pill/*/padding-x|padding-y|border-width
+    if n >= 3 and p[0] == 'pill' and p[2] in ('padding-x', 'padding-y', 'border-width'):
         return True
     # layout/*/padding-x|padding-y|gap-x
     if n >= 3 and p[0] == 'layout' and p[2] in ('padding-x', 'padding-y', 'gap-x'):
+        return True
+    # button/base/border/width/sm|md
+    if n >= 4 and p[0] == 'button' and p[1] == 'base' and p[2] == 'border' and p[3] == 'width':
+        return True
+    # pill/text/size|line-height|letter-spacing
+    if n >= 3 and p[0] == 'pill' and p[1] == 'text' and p[2] in ('size', 'line-height', 'letter-spacing'):
+        return True
+    # pill/sm
+    if n >= 2 and p[0] == 'pill' and p[1] == 'sm':
+        return True
+    # focus/ring-width, focus/offset, focus/outline-offset
+    if n >= 2 and p[0] == 'focus' and p[1] in ('ring-width', 'offset', 'outline-offset'):
+        return True
+    # focus/ring/focus-ring-offset, focus/ring/focus-ring-width
+    if n >= 3 and p[0] == 'focus' and p[1] == 'ring' and p[2] in ('focus-ring-offset', 'focus-ring-width'):
         return True
     return False
 
@@ -340,6 +402,9 @@ def main():
             tokens = TRANSFORMS[name](tokens)
 
         tokens = apply_px_units(tokens)
+
+        # FIX 4: Validar tokens críticos antes de escribir
+        validate_output(name, tokens)
 
         n = count_tokens(tokens)
         grand_total += n

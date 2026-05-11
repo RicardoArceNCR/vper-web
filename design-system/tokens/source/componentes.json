@@ -121,27 +121,27 @@
       },
       "line-height": {
         "$type": "float",
-        "$value": 1.2000000476837158
+        "$value": 1.2
       },
       "border": {
         "width": {
           "sm": {
-            "$type": "float",
-            "$value": 1
+            "$type": "dimension",
+            "$value": "1px"
           },
           "md": {
-            "$type": "float",
-            "$value": 2
+            "$type": "dimension",
+            "$value": "2px"
           }
         }
       },
       "transition": {
         "$type": "string",
-        "$value": "motion/fast"
+        "$value": "150ms ease"
       },
       "cursor": {
         "$type": "string",
-        "$value": "motion/fast"
+        "$value": "150ms ease"
       },
       "transitions": {
         "$type": "string",
@@ -221,7 +221,7 @@
       },
       "opacity": {
         "$type": "float",
-        "$value": 0.4000000059604645
+        "$value": 0.4
       }
     }
   },
@@ -350,8 +350,8 @@
         "$value": "{radius.lg}"
       },
       "border-width": {
-        "$type": "float",
-        "$value": 1
+        "$type": "dimension",
+        "$value": "1px"
       },
       "padding-x": {
         "$type": "dimension",
@@ -380,20 +380,20 @@
         "$value": "{surface.base}"
       },
       "size": {
-        "$type": "float",
-        "$value": 12
+        "$type": "dimension",
+        "$value": "12px"
       },
       "line-height": {
-        "$type": "float",
-        "$value": 12
+        "$type": "dimension",
+        "$value": "12px"
       },
       "weight": {
         "$type": "float",
         "$value": 700
       },
       "letter-spacing": {
-        "$type": "float",
-        "$value": 3
+        "$type": "dimension",
+        "$value": "3px"
       }
     },
     "informative": {
@@ -411,8 +411,8 @@
       }
     },
     "sm": {
-      "$type": "float",
-      "$value": 0
+      "$type": "dimension",
+      "$value": "0px"
     }
   }
 }

@@ -472,7 +472,7 @@ export default {
       },
       "letter-spacing": {
         $type: "float",
-        $value: 0.009999999776482582,
+        $value: 0.01,
         filePath: "source/componentes.json",
         isSource: true,
         original: {
@@ -489,12 +489,12 @@ export default {
       },
       "line-height": {
         $type: "float",
-        $value: 1.2000000476837158,
+        $value: 1.2,
         filePath: "source/componentes.json",
         isSource: true,
         original: {
           $type: "float",
-          $value: 1.2000000476837158,
+          $value: 1.2,
         },
         name: "ButtonBaseLineHeight",
         attributes: {
@@ -507,13 +507,13 @@ export default {
       border: {
         width: {
           sm: {
-            $type: "float",
-            $value: 1,
+            $type: "dimension",
+            $value: "1px",
             filePath: "source/componentes.json",
             isSource: true,
             original: {
-              $type: "float",
-              $value: 1,
+              $type: "dimension",
+              $value: "1px",
             },
             name: "ButtonBaseBorderWidthSm",
             attributes: {
@@ -526,13 +526,13 @@ export default {
             path: ["button", "base", "border", "width", "sm"],
           },
           md: {
-            $type: "float",
-            $value: 2,
+            $type: "dimension",
+            $value: "2px",
             filePath: "source/componentes.json",
             isSource: true,
             original: {
-              $type: "float",
-              $value: 2,
+              $type: "dimension",
+              $value: "2px",
             },
             name: "ButtonBaseBorderWidthMd",
             attributes: {
@@ -548,12 +548,12 @@ export default {
       },
       transition: {
         $type: "string",
-        $value: "motion/fast",
+        $value: "150ms ease",
         filePath: "source/componentes.json",
         isSource: true,
         original: {
           $type: "string",
-          $value: "motion/fast",
+          $value: "150ms ease",
         },
         name: "ButtonBaseTransition",
         attributes: {
@@ -565,12 +565,12 @@ export default {
       },
       cursor: {
         $type: "string",
-        $value: "motion/fast",
+        $value: "150ms ease",
         filePath: "source/componentes.json",
         isSource: true,
         original: {
           $type: "string",
-          $value: "motion/fast",
+          $value: "150ms ease",
         },
         name: "ButtonBaseCursor",
         attributes: {
@@ -877,12 +877,12 @@ export default {
       },
       opacity: {
         $type: "float",
-        $value: 0.4000000059604645,
+        $value: 0.4,
         filePath: "source/componentes.json",
         isSource: true,
         original: {
           $type: "float",
-          $value: 0.4000000059604645,
+          $value: 0.4,
         },
         name: "ButtonDisabledOpacity",
         attributes: {
@@ -1348,13 +1348,13 @@ export default {
         path: ["pill", "base", "radius"],
       },
       "border-width": {
-        $type: "float",
-        $value: 1,
+        $type: "dimension",
+        $value: "1px",
         filePath: "source/componentes.json",
         isSource: true,
         original: {
-          $type: "float",
-          $value: 1,
+          $type: "dimension",
+          $value: "1px",
         },
         name: "PillBaseBorderWidth",
         attributes: {
@@ -1469,13 +1469,13 @@ export default {
         path: ["pill", "text", "bg"],
       },
       size: {
-        $type: "float",
-        $value: 12,
+        $type: "dimension",
+        $value: "12px",
         filePath: "source/componentes.json",
         isSource: true,
         original: {
-          $type: "float",
-          $value: 12,
+          $type: "dimension",
+          $value: "12px",
         },
         name: "PillTextSize",
         attributes: {
@@ -1486,13 +1486,13 @@ export default {
         path: ["pill", "text", "size"],
       },
       "line-height": {
-        $type: "float",
-        $value: 12,
+        $type: "dimension",
+        $value: "12px",
         filePath: "source/componentes.json",
         isSource: true,
         original: {
-          $type: "float",
-          $value: 12,
+          $type: "dimension",
+          $value: "12px",
         },
         name: "PillTextLineHeight",
         attributes: {
@@ -1520,13 +1520,13 @@ export default {
         path: ["pill", "text", "weight"],
       },
       "letter-spacing": {
-        $type: "float",
-        $value: 3,
+        $type: "dimension",
+        $value: "3px",
         filePath: "source/componentes.json",
         isSource: true,
         original: {
-          $type: "float",
-          $value: 3,
+          $type: "dimension",
+          $value: "3px",
         },
         name: "PillTextLetterSpacing",
         attributes: {
@@ -1591,13 +1591,13 @@ export default {
       },
     },
     sm: {
-      $type: "float",
-      $value: 0,
+      $type: "dimension",
+      $value: "0px",
       filePath: "source/componentes.json",
       isSource: true,
       original: {
-        $type: "float",
-        $value: 0,
+        $type: "dimension",
+        $value: "0px",
       },
       name: "PillSm",
       attributes: {
@@ -1610,12 +1610,12 @@ export default {
   opacity: {
     42: {
       $type: "float",
-      $value: 0.41999998688697815,
+      $value: 0.42,
       filePath: "source/numbers.json",
       isSource: true,
       original: {
         $type: "float",
-        $value: 0.41999998688697815,
+        $value: 0.42,
       },
       name: "Opacity42",
       attributes: {
@@ -1642,12 +1642,12 @@ export default {
     },
     60: {
       $type: "float",
-      $value: 0.6000000238418579,
+      $value: 0.6,
       filePath: "source/numbers.json",
       isSource: true,
       original: {
         $type: "float",
-        $value: 0.6000000238418579,
+        $value: 0.6,
       },
       name: "Opacity60",
       attributes: {
@@ -1658,12 +1658,12 @@ export default {
     },
     72: {
       $type: "float",
-      $value: 0.7200000286102295,
+      $value: 0.72,
       filePath: "source/numbers.json",
       isSource: true,
       original: {
         $type: "float",
-        $value: 0.7200000286102295,
+        $value: 0.72,
       },
       name: "Opacity72",
       attributes: {
@@ -1674,12 +1674,12 @@ export default {
     },
     80: {
       $type: "float",
-      $value: 0.800000011920929,
+      $value: 0.8,
       filePath: "source/numbers.json",
       isSource: true,
       original: {
         $type: "float",
-        $value: 0.800000011920929,
+        $value: 0.8,
       },
       name: "Opacity80",
       attributes: {
@@ -1690,12 +1690,12 @@ export default {
     },
     "04": {
       $type: "float",
-      $value: 0.03999999910593033,
+      $value: 0.04,
       filePath: "source/numbers.json",
       isSource: true,
       original: {
         $type: "float",
-        $value: 0.03999999910593033,
+        $value: 0.04,
       },
       name: "Opacity04",
       attributes: {
@@ -1706,12 +1706,12 @@ export default {
     },
     "08": {
       $type: "float",
-      $value: 0.07999999821186066,
+      $value: 0.08,
       filePath: "source/numbers.json",
       isSource: true,
       original: {
         $type: "float",
-        $value: 0.07999999821186066,
+        $value: 0.08,
       },
       name: "Opacity08",
       attributes: {
@@ -3286,12 +3286,12 @@ export default {
     "letter-spacing": {
       button: {
         $type: "float",
-        $value: 0.009999999776482582,
+        $value: 0.01,
         filePath: "source/primitivos.json",
         isSource: true,
         original: {
           $type: "float",
-          $value: 0.009999999776482582,
+          $value: 0.01,
         },
         name: "TypographyLetterSpacingButton",
         attributes: {
@@ -4572,13 +4572,13 @@ export default {
       path: ["focus", "contrast"],
     },
     "ring-width": {
-      $type: "float",
-      $value: 2,
+      $type: "dimension",
+      $value: "2px",
       filePath: "source/semanticos.json",
       isSource: true,
       original: {
-        $type: "float",
-        $value: 2,
+        $type: "dimension",
+        $value: "2px",
       },
       name: "FocusRingWidth",
       attributes: {
@@ -4588,13 +4588,13 @@ export default {
       path: ["focus", "ring-width"],
     },
     offset: {
-      $type: "float",
-      $value: 2,
+      $type: "dimension",
+      $value: "2px",
       filePath: "source/semanticos.json",
       isSource: true,
       original: {
-        $type: "float",
-        $value: 2,
+        $type: "dimension",
+        $value: "2px",
       },
       name: "FocusOffset",
       attributes: {
@@ -4605,13 +4605,13 @@ export default {
     },
     ring: {
       "focus-ring-offset": {
-        $type: "float",
-        $value: 2,
+        $type: "dimension",
+        $value: "2px",
         filePath: "source/semanticos.json",
         isSource: true,
         original: {
-          $type: "float",
-          $value: 2,
+          $type: "dimension",
+          $value: "2px",
         },
         name: "FocusRingFocusRingOffset",
         attributes: {
@@ -4622,13 +4622,13 @@ export default {
         path: ["focus", "ring", "focus-ring-offset"],
       },
       "focus-ring-width": {
-        $type: "float",
-        $value: 2,
+        $type: "dimension",
+        $value: "2px",
         filePath: "source/semanticos.json",
         isSource: true,
         original: {
-          $type: "float",
-          $value: 2,
+          $type: "dimension",
+          $value: "2px",
         },
         name: "FocusRingFocusRingWidth",
         attributes: {
@@ -4673,13 +4673,13 @@ export default {
       path: ["focus", "ring-offset"],
     },
     "outline-offset": {
-      $type: "float",
-      $value: 2,
+      $type: "dimension",
+      $value: "2px",
       filePath: "source/semanticos.json",
       isSource: true,
       original: {
-        $type: "float",
-        $value: 2,
+        $type: "dimension",
+        $value: "2px",
       },
       name: "FocusOutlineOffset",
       attributes: {
@@ -4941,7 +4941,7 @@ export default {
   overlay: {
     hero: {
       $type: "float",
-      $value: 0.7200000286102295,
+      $value: 0.72,
       filePath: "source/semanticos.json",
       isSource: true,
       original: {
@@ -4957,7 +4957,7 @@ export default {
     },
     card: {
       $type: "float",
-      $value: 0.6000000238418579,
+      $value: 0.6,
       filePath: "source/semanticos.json",
       isSource: true,
       original: {
@@ -4973,7 +4973,7 @@ export default {
     },
     modal: {
       $type: "float",
-      $value: 0.800000011920929,
+      $value: 0.8,
       filePath: "source/semanticos.json",
       isSource: true,
       original: {

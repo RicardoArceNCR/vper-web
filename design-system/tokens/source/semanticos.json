@@ -211,21 +211,21 @@
       "$value": "{color.neutral.0}"
     },
     "ring-width": {
-      "$type": "float",
-      "$value": 2
+      "$type": "dimension",
+      "$value": "2px"
     },
     "offset": {
-      "$type": "float",
-      "$value": 2
+      "$type": "dimension",
+      "$value": "2px"
     },
     "ring": {
       "focus-ring-offset": {
-        "$type": "float",
-        "$value": 2
+        "$type": "dimension",
+        "$value": "2px"
       },
       "focus-ring-width": {
-        "$type": "float",
-        "$value": 2
+        "$type": "dimension",
+        "$value": "2px"
       },
       "focus-ring-offset-color": {
         "$type": "color",
@@ -237,8 +237,8 @@
       "$value": "{background.base}"
     },
     "outline-offset": {
-      "$type": "float",
-      "$value": 2
+      "$type": "dimension",
+      "$value": "2px"
     },
     "ring-offset-color": {
       "$type": "color",
