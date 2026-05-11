@@ -1,0 +1,60 @@
+.
+├── README.md
+├── design-system
+│   └── tokens
+│       ├── build
+│       │   ├── tokens.css
+│       │   └── tokens.js
+│       ├── figma-to-sd.py
+│       ├── package-lock.json
+│       ├── package.json
+│       ├── source
+│       │   ├── componentes.json
+│       │   ├── numbers.json
+│       │   ├── primitivos.json
+│       │   ├── raw
+│       │   │   ├── componentes.json
+│       │   │   ├── numbers.json
+│       │   │   ├── primitivos.json
+│       │   │   └── semanticos.json
+│       │   └── semanticos.json
+│       └── style-dictionary.config.js
+├── dist
+│   ├── assets
+│   │   ├── index-B7CuLGqM.js
+│   │   └── index-BRwjJfaB.css
+│   └── index.html
+├── index.html
+├── package-lock.json
+├── package.json
+├── primeros pasos
+│   ├── PROXIMOS-PASOS-VPER.md
+│   └── README-DESIGN-SYSTEM.md
+├── project_wp_tree.txt
+├── src
+│   ├── App.jsx
+│   ├── components
+│   │   ├── Contact
+│   │   │   ├── Contact.jsx
+│   │   │   └── Contact.module.css
+│   │   ├── Footer
+│   │   │   ├── Footer.jsx
+│   │   │   └── Footer.module.css
+│   │   ├── Hero
+│   │   │   ├── Hero.jsx
+│   │   │   └── Hero.module.css
+│   │   ├── LogoStrip
+│   │   │   ├── LogoStrip.jsx
+│   │   │   └── LogoStrip.module.css
+│   │   ├── Nav
+│   │   │   ├── Nav.jsx
+│   │   │   └── Nav.module.css
+│   │   └── Work
+│   │       ├── Work.jsx
+│   │       └── Work.module.css
+│   ├── index.css
+│   └── main.jsx
+├── tailwind.config.js
+└── vite.config.js
+
+17 directories, 41 files
