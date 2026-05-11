@@ -313,20 +313,23 @@ def needs_px(path):
         return True
     if p[0] == 'input' and p[1] in ('radius', 'padding-x', 'padding-y'):
         return True
-    # pill/*/padding-x|padding-y|border-width
-    if n >= 3 and p[0] == 'pill' and p[2] in ('padding-x', 'padding-y', 'border-width'):
+    # pill/*/padding-x|padding-y
+    if n >= 3 and p[0] == 'pill' and p[2] in ('padding-x', 'padding-y'):
         return True
     # layout/*/padding-x|padding-y|gap-x
     if n >= 3 and p[0] == 'layout' and p[2] in ('padding-x', 'padding-y', 'gap-x'):
         return True
-    # button/base/border/width/sm|md
-    if n >= 4 and p[0] == 'button' and p[1] == 'base' and p[2] == 'border' and p[3] == 'width':
-        return True
-    # pill/text/size|line-height|letter-spacing
+    # pill/text/size|line-height|letter-spacing  (path real: 3 segmentos)
     if n >= 3 and p[0] == 'pill' and p[1] == 'text' and p[2] in ('size', 'line-height', 'letter-spacing'):
         return True
     # pill/sm
     if n >= 2 and p[0] == 'pill' and p[1] == 'sm':
+        return True
+    # pill/*/border-width  (p.ej. pill/base/border-width)
+    if n >= 3 and p[0] == 'pill' and p[2] == 'border-width':
+        return True
+    # button/base/border/width/sm|md  (path real: 5 segmentos)
+    if n >= 4 and p[0] == 'button' and p[1] == 'base' and p[2] == 'border' and p[3] == 'width':
         return True
     # focus/ring-width, focus/offset, focus/outline-offset
     if n >= 2 and p[0] == 'focus' and p[1] in ('ring-width', 'offset', 'outline-offset'):
