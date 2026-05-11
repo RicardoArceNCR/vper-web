@@ -97,7 +97,7 @@ export default {
         isSource: true,
         original: {
           $type: "color",
-          $value: "{focus.ring-color}",
+          $value: "{focus.ring.color}",
         },
         name: "ButtonPrimaryFocusRing",
         attributes: {
@@ -269,7 +269,7 @@ export default {
         isSource: true,
         original: {
           $type: "color",
-          $value: "{focus.ring-color}",
+          $value: "{focus.ring.color}",
         },
         name: "ButtonSecondaryFocusRing",
         attributes: {
@@ -1688,6 +1688,22 @@ export default {
       },
       path: ["opacity", "80"],
     },
+    none: {
+      $type: "float",
+      $value: 0,
+      filePath: "source/numbers.json",
+      isSource: true,
+      original: {
+        $type: "float",
+        $value: 0,
+      },
+      name: "OpacityNone",
+      attributes: {
+        category: "opacity",
+        type: "none",
+      },
+      path: ["opacity", "none"],
+    },
     "04": {
       $type: "float",
       $value: 0.04,
@@ -1719,102 +1735,6 @@ export default {
         type: "08",
       },
       path: ["opacity", "08"],
-    },
-    xs: {
-      $type: "string",
-      $value: "rgba(0, 0, 0, 0.0005)",
-      filePath: "source/primitivos.json",
-      isSource: true,
-      original: {
-        $type: "string",
-        $value: "rgba(0, 0, 0, 0.0005)",
-      },
-      name: "OpacityXs",
-      attributes: {
-        category: "opacity",
-        type: "xs",
-      },
-      path: ["opacity", "xs"],
-    },
-    sm: {
-      $type: "string",
-      $value: "rgba(0, 0, 0, 0.0008)",
-      filePath: "source/primitivos.json",
-      isSource: true,
-      original: {
-        $type: "string",
-        $value: "rgba(0, 0, 0, 0.0008)",
-      },
-      name: "OpacitySm",
-      attributes: {
-        category: "opacity",
-        type: "sm",
-      },
-      path: ["opacity", "sm"],
-    },
-    md: {
-      $type: "string",
-      $value: "rgba(0, 0, 0, 0.0012)",
-      filePath: "source/primitivos.json",
-      isSource: true,
-      original: {
-        $type: "string",
-        $value: "rgba(0, 0, 0, 0.0012)",
-      },
-      name: "OpacityMd",
-      attributes: {
-        category: "opacity",
-        type: "md",
-      },
-      path: ["opacity", "md"],
-    },
-    lg: {
-      $type: "string",
-      $value: "rgba(0, 0, 0, 0.0016)",
-      filePath: "source/primitivos.json",
-      isSource: true,
-      original: {
-        $type: "string",
-        $value: "rgba(0, 0, 0, 0.0016)",
-      },
-      name: "OpacityLg",
-      attributes: {
-        category: "opacity",
-        type: "lg",
-      },
-      path: ["opacity", "lg"],
-    },
-    xl: {
-      $type: "string",
-      $value: "rgba(0, 0, 0, 0.002)",
-      filePath: "source/primitivos.json",
-      isSource: true,
-      original: {
-        $type: "string",
-        $value: "rgba(0, 0, 0, 0.002)",
-      },
-      name: "OpacityXl",
-      attributes: {
-        category: "opacity",
-        type: "xl",
-      },
-      path: ["opacity", "xl"],
-    },
-    none: {
-      $type: "string",
-      $value: "rgba(0, 0, 0, 0)",
-      filePath: "source/primitivos.json",
-      isSource: true,
-      original: {
-        $type: "string",
-        $value: "rgba(0, 0, 0, 0)",
-      },
-      name: "OpacityNone",
-      attributes: {
-        category: "opacity",
-        type: "none",
-      },
-      path: ["opacity", "none"],
     },
   },
   breakpoint: {
@@ -3301,6 +3221,40 @@ export default {
         },
         path: ["typography", "letter-spacing", "button"],
       },
+      tight: {
+        $type: "float",
+        $value: -0.04,
+        filePath: "source/primitivos.json",
+        isSource: true,
+        original: {
+          $type: "float",
+          $value: -0.04,
+        },
+        name: "TypographyLetterSpacingTight",
+        attributes: {
+          category: "typography",
+          type: "letter-spacing",
+          item: "tight",
+        },
+        path: ["typography", "letter-spacing", "tight"],
+      },
+      heading: {
+        $type: "float",
+        $value: -0.06,
+        filePath: "source/primitivos.json",
+        isSource: true,
+        original: {
+          $type: "float",
+          $value: -0.06,
+        },
+        name: "TypographyLetterSpacingHeading",
+        attributes: {
+          category: "typography",
+          type: "letter-spacing",
+          item: "heading",
+        },
+        path: ["typography", "letter-spacing", "heading"],
+      },
     },
   },
   radius: {
@@ -3760,12 +3714,12 @@ export default {
     },
     full: {
       $type: "dimension",
-      $value: "16px",
+      $value: "9999px",
       filePath: "source/primitivos.json",
       isSource: true,
       original: {
         $type: "dimension",
-        $value: "16px",
+        $value: "9999px",
       },
       name: "BorderWidthFull",
       attributes: {
@@ -3773,6 +3727,22 @@ export default {
         type: "full",
       },
       path: ["border-width", "full"],
+    },
+    hairline: {
+      $type: "dimension",
+      $value: "1px",
+      filePath: "source/primitivos.json",
+      isSource: true,
+      original: {
+        $type: "dimension",
+        $value: "1px",
+      },
+      name: "BorderWidthHairline",
+      attributes: {
+        category: "border-width",
+        type: "hairline",
+      },
+      path: ["border-width", "hairline"],
     },
   },
   brand: {
@@ -4127,7 +4097,7 @@ export default {
     },
     none: {
       $type: "string",
-      $value: "rgba(0, 0, 0, 0)",
+      $value: 0,
       filePath: "source/semanticos.json",
       isSource: true,
       original: {
@@ -4521,24 +4491,24 @@ export default {
       },
       path: ["surface", "disabled"],
     },
-  },
-  focus: {
-    "ring-color": {
+    hover: {
       $type: "color",
-      $value: "#d55856",
+      $value: "#181818",
       filePath: "source/semanticos.json",
       isSource: true,
       original: {
         $type: "color",
-        $value: "{brand.main}",
+        $value: "{surface.raised}",
       },
-      name: "FocusRingColor",
+      name: "SurfaceHover",
       attributes: {
-        category: "focus",
-        type: "ring-color",
+        category: "surface",
+        type: "hover",
       },
-      path: ["focus", "ring-color"],
+      path: ["surface", "hover"],
     },
+  },
+  focus: {
     soft: {
       $type: "color",
       $value: "#fedeaa",
@@ -4571,22 +4541,6 @@ export default {
       },
       path: ["focus", "contrast"],
     },
-    "ring-width": {
-      $type: "dimension",
-      $value: "2px",
-      filePath: "source/semanticos.json",
-      isSource: true,
-      original: {
-        $type: "dimension",
-        $value: "2px",
-      },
-      name: "FocusRingWidth",
-      attributes: {
-        category: "focus",
-        type: "ring-width",
-      },
-      path: ["focus", "ring-width"],
-    },
     offset: {
       $type: "dimension",
       $value: "2px",
@@ -4604,6 +4558,23 @@ export default {
       path: ["focus", "offset"],
     },
     ring: {
+      color: {
+        $type: "color",
+        $value: "#d55856",
+        filePath: "source/semanticos.json",
+        isSource: true,
+        original: {
+          $type: "color",
+          $value: "{brand.main}",
+        },
+        name: "FocusRingColor",
+        attributes: {
+          category: "focus",
+          type: "ring",
+          item: "color",
+        },
+        path: ["focus", "ring", "color"],
+      },
       "focus-ring-offset": {
         $type: "dimension",
         $value: "2px",
@@ -5244,6 +5215,128 @@ export default {
         },
         path: ["layout", "container", "padding-x"],
       },
+      "max-width": {
+        $type: "float",
+        $value: 1280,
+        filePath: "source/semanticos.json",
+        isSource: true,
+        original: {
+          $type: "float",
+          $value: 1280,
+        },
+        name: "LayoutContainerMaxWidth",
+        attributes: {
+          category: "layout",
+          type: "container",
+          item: "max-width",
+        },
+        path: ["layout", "container", "max-width"],
+      },
+    },
+    section: {
+      "spacing-y-mobile": {
+        $type: "float",
+        $value: "40px",
+        filePath: "source/semanticos.json",
+        isSource: true,
+        original: {
+          $type: "float",
+          $value: "{spacing.10}",
+        },
+        name: "LayoutSectionSpacingYMobile",
+        attributes: {
+          category: "layout",
+          type: "section",
+          item: "spacing-y-mobile",
+        },
+        path: ["layout", "section", "spacing-y-mobile"],
+      },
+      "spacing-y": {
+        $type: "float",
+        $value: "64px",
+        filePath: "source/semanticos.json",
+        isSource: true,
+        original: {
+          $type: "float",
+          $value: "{spacing.16}",
+        },
+        name: "LayoutSectionSpacingY",
+        attributes: {
+          category: "layout",
+          type: "section",
+          item: "spacing-y",
+        },
+        path: ["layout", "section", "spacing-y"],
+      },
+    },
+    grid: {
+      gap: {
+        $type: "float",
+        $value: "24px",
+        filePath: "source/semanticos.json",
+        isSource: true,
+        original: {
+          $type: "float",
+          $value: "{spacing.6}",
+        },
+        name: "LayoutGridGap",
+        attributes: {
+          category: "layout",
+          type: "grid",
+          item: "gap",
+        },
+        path: ["layout", "grid", "gap"],
+      },
+    },
+  },
+  motion: {
+    fast: {
+      $type: "float",
+      $value: 150,
+      filePath: "source/semanticos.json",
+      isSource: true,
+      original: {
+        $type: "float",
+        $value: 150,
+      },
+      name: "MotionFast",
+      attributes: {
+        category: "motion",
+        type: "fast",
+      },
+      path: ["motion", "fast"],
+    },
+    normal: {
+      $type: "float",
+      $value: 250,
+      filePath: "source/semanticos.json",
+      isSource: true,
+      original: {
+        $type: "float",
+        $value: 250,
+      },
+      name: "MotionNormal",
+      attributes: {
+        category: "motion",
+        type: "normal",
+      },
+      path: ["motion", "normal"],
+    },
+    slow: {
+      $type: "float",
+      $value: 400,
+      filePath: "source/semanticos.json",
+      isSource: true,
+      original: {
+        $type: "float",
+        $value: 400,
+      },
+      name: "MotionSlow",
+      attributes: {
+        category: "motion",
+        type: "slow",
+      },
+      path: ["motion", "slow"],
     },
   },
 };

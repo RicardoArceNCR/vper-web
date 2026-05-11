@@ -1,39 +1,46 @@
 .footer {
   width: 100%;
   background-color: var(--nav-bg);
-  border-top: 1px solid var(--nav-border);
+  border-top: var(--border-width-hairline, 1px) solid var(--nav-border);
+  padding-top: var(--spacing-8);
 }
 
 .inner {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--spacing-8);
-  padding: var(--spacing-12) var(--layout-header-padding-x);
-  max-width: 1280px;
-  margin: 0 auto;
+  gap: var(--spacing-10);
+  padding: var(--spacing-12) 0;
 }
 
 @media (min-width: 768px) {
   .inner {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 2fr 1fr 1fr;
     align-items: start;
+    gap: var(--spacing-12);
+  }
+  .tagline {
+    max-width: 320px;
   }
 }
 
 .logo {
   font-family: 'Gotham', sans-serif;
   font-weight: 900;
-  font-size: 20px;
-  letter-spacing: -0.5px;
+  font-size: var(--typography-size-xl);
+  letter-spacing: var(--typography-letter-spacing-tight, -0.5px);
   text-transform: uppercase;
   color: var(--text-color-primary);
   text-decoration: none;
+  margin-bottom: var(--spacing-3);
+  display: block;
 }
 
 .tagline {
   margin-top: var(--spacing-2);
   font-size: var(--typography-size-sm);
+  line-height: 1.6;
   color: var(--nav-item-color);
+  max-width: 280px;
 }
 
 .colTitle {
@@ -43,21 +50,23 @@
   letter-spacing: var(--typography-letter-spacing-button);
   text-transform: uppercase;
   color: var(--nav-item-color);
-  margin-bottom: var(--spacing-3);
+  margin-bottom: var(--spacing-4);
 }
 
 .navList {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-2);
+  gap: var(--spacing-3);
 }
 
 .navLink {
   font-size: var(--typography-size-sm);
   color: var(--nav-item-color);
   text-decoration: none;
-  transition: color 150ms ease;
+  transition: color var(--motion-fast, 150ms ease);
+  padding: var(--spacing-1) 0;
+  display: block;
 }
 
 .navLink:hover {
@@ -65,10 +74,8 @@
 }
 
 .bottom {
-  border-top: 1px solid var(--nav-border);
-  padding: var(--spacing-6) var(--layout-header-padding-x);
-  max-width: 1280px;
-  margin: 0 auto;
+  border-top: var(--border-width-hairline, 1px) solid var(--nav-border);
+  padding: var(--spacing-8) 0;
   display: flex;
   flex-direction: column;
   gap: var(--spacing-2);

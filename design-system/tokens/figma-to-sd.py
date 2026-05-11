@@ -47,7 +47,7 @@ REQUIRED_TOKENS = {
         ['text', 'color', 'primary'],
         ['surface', 'subtle'],
         ['brand', 'main'],
-        ['focus', 'ring-color'],
+        ['focus', 'ring', 'color'],
     ],
     'primitivos': [
         ['spacing', '4'],
@@ -273,12 +273,9 @@ def transform_numbers(tokens):
 
 def transform_semanticos(tokens):
     """
-    Elimina focus.ring.color — genera el mismo CSS var que focus.ring-color
-    (--focus-ring-color) causando una colisión de namespace en Style Dictionary.
-    Se conserva focus.ring-color como fuente de verdad.
+    Mantiene focus/ring/color como fuente de verdad.
+    La versión vieja focus/ring-color ya no debe existir.
     """
-    if 'focus' in tokens and 'ring' in tokens['focus']:
-        tokens['focus']['ring'].pop('color', None)
     return tokens
 
 

@@ -1,15 +1,11 @@
 .contact {
-  width: 100%;
   background-color: var(--surface-base);
-  padding: var(--spacing-16) var(--layout-header-padding-x);
 }
 
 .inner {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-12);
-  max-width: 1280px;
-  margin: 0 auto;
 }
 
 .title {
@@ -17,7 +13,7 @@
   font-weight: 900;
   font-size: var(--typography-size-display);
   line-height: 1.05;
-  letter-spacing: -1.5px;
+  letter-spacing: var(--typography-letter-spacing-heading, -1.5px);
   text-transform: uppercase;
   color: var(--text-color-primary);
   margin-bottom: var(--spacing-4);
@@ -33,7 +29,7 @@
   font-weight: var(--typography-weight-regular);
   font-size: var(--typography-size-md);
   line-height: var(--spacing-6);
-  letter-spacing: -0.2px;
+  letter-spacing: var(--typography-letter-spacing-tight, -0.2px);
   color: var(--text-color-secondary);
 }
 
@@ -75,7 +71,7 @@
   font-size: var(--typography-size-md);
   color: var(--text-color-primary);
   outline: none;
-  transition: border-color 150ms ease;
+  transition: border-color var(--motion-fast, 150ms ease);
   -webkit-appearance: none;
   appearance: none;
 }
@@ -101,19 +97,4 @@
 
 @media (min-width: 640px) {
   .row { grid-template-columns: 1fr 1fr; }
-}
-
-@media (min-width: 768px) {
-  .contact { padding: var(--spacing-16) var(--spacing-8); }
-}
-
-@media (min-width: 1024px) {
-  .contact { padding: var(--spacing-16) var(--spacing-6); }
-  .inner {
-    flex-direction: row;
-    align-items: flex-start;
-    gap: var(--spacing-16);
-  }
-  .info { flex: 0 0 360px; }
-  .form { flex: 1; }
 }

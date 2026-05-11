@@ -1,5 +1,8 @@
 import { useState } from 'react'
 import styles from './Contact.module.css'
+import Container from '../ui/Container/Container'
+import Section from '../ui/Section/Section'
+import Button from '../ui/Button/Button'
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', surname: '', email: '', message: '' })
@@ -15,8 +18,8 @@ export default function Contact() {
   }
 
   return (
-    <section className={styles.contact} id="contact" aria-labelledby="contact-title">
-      <div className={styles.inner}>
+    <Section className={styles.contact} id="contact" aria-labelledby="contact-title">
+      <Container className={styles.inner}>
 
         <div className={styles.info}>
           <h2 className={styles.title} id="contact-title">Contact</h2>
@@ -76,12 +79,12 @@ export default function Contact() {
             />
           </div>
 
-          <button type="submit" className={`btn btn--primary ${styles.submit}`}>
+          <Button type="submit" className={styles.submit}>
             Submit
-          </button>
+          </Button>
         </form>
 
-      </div>
-    </section>
+      </Container>
+    </Section>
   )
 }

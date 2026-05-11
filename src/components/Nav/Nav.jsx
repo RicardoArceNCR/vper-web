@@ -1,5 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import styles from './Nav.module.css'
+import Button from '../ui/Button/Button'
+import Container from '../ui/Container/Container'
 
 const NAV_LINKS = [
   { label: 'Work',     href: '#work' },
@@ -43,48 +45,50 @@ export default function Nav() {
   return (
     <header className={styles.header}>
       <nav className={styles.nav} aria-label="Navegación principal">
+        <Container className={styles.navInner}>
 
-        <a href="/" className={styles.logo} aria-label="VPER Media — Inicio">
-          VPER·MEDIA
-        </a>
-
-        <button
-          ref={hamburgerRef}
-          className={styles.hamburger}
-          aria-label={isOpen ? 'Cerrar menú' : 'Abrir menú'}
-          aria-expanded={isOpen}
-          aria-controls="nav-menu"
-          onClick={toggle}
-        >
-          <span className={styles.hamburgerLine} />
-          <span className={styles.hamburgerLine} />
-          <span className={styles.hamburgerLine} />
-        </button>
-
-        <div
-          ref={menuRef}
-          id="nav-menu"
-          className={`${styles.menu} ${isOpen ? styles.open : ''}`}
-        >
-          <ul className={styles.links}>
-            {NAV_LINKS.map(({ label, href }) => (
-              <li key={label}>
-                <a
-                  href={href}
-                  className={`${styles.link} ${label === 'Work' ? styles.active : ''}`}
-                  onClick={() => setIsOpen(false)}
-                >
-                  {label}
-                </a>
-              </li>
-            ))}
-          </ul>
-          <div className={styles.divider} aria-hidden="true" />
-          <a href="#contact" className={`btn btn--secondary ${styles.cta}`}>
-            Schedule a call
+          <a href="/" className={styles.logo} aria-label="VPER Media — Inicio">
+            VPER·MEDIA
           </a>
-        </div>
 
+          <button
+            ref={hamburgerRef}
+            className={styles.hamburger}
+            aria-label={isOpen ? 'Cerrar menú' : 'Abrir menú'}
+            aria-expanded={isOpen}
+            aria-controls="nav-menu"
+            onClick={toggle}
+          >
+            <span className={styles.hamburgerLine} />
+            <span className={styles.hamburgerLine} />
+            <span className={styles.hamburgerLine} />
+          </button>
+
+          <div
+            ref={menuRef}
+            id="nav-menu"
+            className={`${styles.menu} ${isOpen ? styles.open : ''}`}
+          >
+            <ul className={styles.links}>
+              {NAV_LINKS.map(({ label, href }) => (
+                <li key={label}>
+                  <a
+                    href={href}
+                    className={`${styles.link} ${label === 'Work' ? styles.active : ''}`}
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <div className={styles.divider} aria-hidden="true" />
+            <Button href="#contact" variant="secondary" className={styles.cta}>
+              Schedule a call
+            </Button>
+          </div>
+
+        </Container>
       </nav>
     </header>
   )

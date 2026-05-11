@@ -233,32 +233,6 @@
       }
     }
   },
-  "opacity": {
-    "xs": {
-      "$type": "string",
-      "$value": "rgba(0, 0, 0, 0.0005)"
-    },
-    "sm": {
-      "$type": "string",
-      "$value": "rgba(0, 0, 0, 0.0008)"
-    },
-    "md": {
-      "$type": "string",
-      "$value": "rgba(0, 0, 0, 0.0012)"
-    },
-    "lg": {
-      "$type": "string",
-      "$value": "rgba(0, 0, 0, 0.0016)"
-    },
-    "xl": {
-      "$type": "string",
-      "$value": "rgba(0, 0, 0, 0.002)"
-    },
-    "none": {
-      "$type": "string",
-      "$value": "rgba(0, 0, 0, 0)"
-    }
-  },
   "typography": {
     "size": {
       "xs": {
@@ -332,6 +306,14 @@
       "button": {
         "$type": "float",
         "$value": 0.01
+      },
+      "tight": {
+        "$type": "float",
+        "$value": -0.04
+      },
+      "heading": {
+        "$type": "float",
+        "$value": -0.06
       }
     }
   },
@@ -456,7 +438,11 @@
     },
     "full": {
       "$type": "dimension",
-      "$value": "16px"
+      "$value": "9999px"
+    },
+    "hairline": {
+      "$type": "dimension",
+      "$value": "1px"
     }
   }
 }

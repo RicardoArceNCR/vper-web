@@ -195,13 +195,13 @@
     "disabled": {
       "$type": "color",
       "$value": "{color.neutral.400}"
+    },
+    "hover": {
+      "$type": "color",
+      "$value": "{surface.raised}"
     }
   },
   "focus": {
-    "ring-color": {
-      "$type": "color",
-      "$value": "{brand.main}"
-    },
     "soft": {
       "$type": "color",
       "$value": "{color.brand.orange.200}"
@@ -210,15 +210,15 @@
       "$type": "color",
       "$value": "{color.neutral.0}"
     },
-    "ring-width": {
-      "$type": "dimension",
-      "$value": "2px"
-    },
     "offset": {
       "$type": "dimension",
       "$value": "2px"
     },
     "ring": {
+      "color": {
+        "$type": "color",
+        "$value": "{brand.main}"
+      },
       "focus-ring-offset": {
         "$type": "dimension",
         "$value": "2px"
@@ -392,7 +392,41 @@
       "padding-x": {
         "$type": "dimension",
         "$value": "{spacing.6}"
+      },
+      "max-width": {
+        "$type": "float",
+        "$value": 1280
       }
+    },
+    "section": {
+      "spacing-y-mobile": {
+        "$type": "float",
+        "$value": "{spacing.10}"
+      },
+      "spacing-y": {
+        "$type": "float",
+        "$value": "{spacing.16}"
+      }
+    },
+    "grid": {
+      "gap": {
+        "$type": "float",
+        "$value": "{spacing.6}"
+      }
+    }
+  },
+  "motion": {
+    "fast": {
+      "$type": "float",
+      "$value": 150
+    },
+    "normal": {
+      "$type": "float",
+      "$value": 250
+    },
+    "slow": {
+      "$type": "float",
+      "$value": 400
     }
   }
 }

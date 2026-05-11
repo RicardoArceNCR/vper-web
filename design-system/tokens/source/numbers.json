@@ -1,5 +1,9 @@
 {
   "opacity": {
+    "none": {
+      "$type": "float",
+      "$value": 0
+    },
     "04": {
       "$type": "float",
       "$value": 0.04

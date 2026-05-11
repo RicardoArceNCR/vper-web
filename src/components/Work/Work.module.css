@@ -1,6 +1,4 @@
 .work {
-  width: 100%;
-  padding: var(--spacing-16) var(--layout-header-padding-x);
   background-color: var(--surface-subtle);
 }
 
@@ -14,7 +12,7 @@
 @media (min-width: 768px) {
   .header {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: minmax(220px, 1fr) minmax(220px, 1fr) auto;
     align-items: center;
     gap: var(--spacing-8);
   }
@@ -23,9 +21,9 @@
 .title {
   font-family: 'Gotham', sans-serif;
   font-weight: 900;
-  font-size: var(--typography-size-display);
-  line-height: 1.05;
-  letter-spacing: -1.5px;
+  font-size: clamp(2.5rem, 6vw, var(--typography-size-display));
+  line-height: 0.9;
+  letter-spacing: var(--typography-letter-spacing-heading, -1.5px);
   text-transform: uppercase;
   color: var(--text-color-primary);
 }
@@ -40,7 +38,7 @@
   font-weight: var(--typography-weight-regular);
   font-size: var(--typography-size-md);
   line-height: var(--spacing-6);
-  letter-spacing: -0.2px;
+  letter-spacing: var(--typography-letter-spacing-tight);
   color: var(--text-color-secondary);
   text-align: center;
 }
@@ -51,6 +49,8 @@
   flex-wrap: nowrap;
   gap: var(--spacing-2);
   justify-content: flex-start;
+  overflow-x: auto;
+  padding-bottom: var(--spacing-1);
 }
 
 @media (min-width: 768px) {
@@ -73,12 +73,12 @@
   text-transform: uppercase;
   color: var(--text-color-primary);
   cursor: pointer;
-  transition: color 150ms ease, border-color 150ms ease, background-color 150ms ease;
+  transition: color var(--motion-fast, 150ms ease), border-color var(--motion-fast, 150ms ease), background-color var(--motion-fast, 150ms ease);
   white-space: nowrap;
 }
 
 .filterBtn:hover {
-  background-color: rgba(255, 255, 255, 0.08);
+  background-color: var(--surface-hover, var(--interaction-hover-subtle));
 }
 
 .filterBtn.active {
@@ -103,7 +103,7 @@
   flex-direction: column;
   gap: var(--spacing-4);
   cursor: pointer;
-  transition: opacity 250ms ease, transform 250ms ease;
+  transition: opacity var(--motion-normal, 200ms ease), transform var(--motion-normal, 200ms ease);
 }
 
 .card.hidden {
@@ -126,7 +126,7 @@
   align-items: center;
   justify-content: center;
   background-color: var(--surface-raised);
-  transition: transform 400ms ease;
+  transition: transform var(--motion-slow, 300ms ease);
 }
 
 .card:hover .cardPlaceholder {
@@ -168,7 +168,7 @@
   font-weight: 900;
   font-size: var(--typography-size-xl);
   line-height: 1.1;
-  letter-spacing: -0.3px;
+  letter-spacing: var(--typography-letter-spacing-tight);
   color: var(--text-color-primary);
   text-transform: uppercase;
 }
@@ -185,16 +185,7 @@
   .grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-@media (min-width: 768px) {
-  .work { padding: var(--spacing-16) var(--spacing-8); }
-}
-
 @media (min-width: 1024px) {
-  .work {
-    padding: var(--spacing-16) var(--spacing-6);
-    max-width: 1280px;
-    margin: 0 auto;
-  }
   .grid {
     grid-template-columns: repeat(3, 1fr);
     gap: var(--spacing-8);

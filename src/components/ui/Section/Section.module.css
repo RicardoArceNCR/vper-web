@@ -1,0 +1,4 @@
+.section {
+  padding-top: var(--layout-container-padding-y, var(--spacing-16));
+  padding-bottom: var(--layout-container-padding-y, var(--spacing-16));
+}

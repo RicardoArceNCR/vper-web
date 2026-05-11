@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import styles from './Work.module.css'
+import Container from '../ui/Container/Container'
+import Section from '../ui/Section/Section'
 
 const FILTERS = [
   { label: 'Todos',    value: 'all' },
@@ -21,45 +23,47 @@ export default function Work() {
   const [activeFilter, setActiveFilter] = useState('all')
 
   return (
-    <section className={styles.work} aria-labelledby="work-title" id="work">
+    <Section className={styles.work} aria-labelledby="work-title" id="work">
+      <Container>
 
-      <div className={styles.header}>
-        <h2 className={styles.title} id="work-title">Selected Work</h2>
-        <p className={styles.subtitle}>Proyectos que hablan por sí solos.</p>
-        <div className={styles.filters} role="group" aria-label="Filtrar por categoría">
-          {FILTERS.map(({ label, value }) => (
-            <button
-              key={value}
-              className={`${styles.filterBtn} ${activeFilter === value ? styles.active : ''}`}
-              onClick={() => setActiveFilter(value)}
-              aria-pressed={activeFilter === value}
+        <div className={styles.header}>
+          <h2 className={styles.title} id="work-title">Selected Work</h2>
+          <p className={styles.subtitle}>Proyectos que hablan por sí solos.</p>
+          <div className={styles.filters} role="group" aria-label="Filtrar por categoría">
+            {FILTERS.map(({ label, value }) => (
+              <button
+                key={value}
+                className={`${styles.filterBtn} ${activeFilter === value ? styles.active : ''}`}
+                onClick={() => setActiveFilter(value)}
+                aria-pressed={activeFilter === value}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div className={styles.grid}>
+          {CARDS.map(({ id, category, tag, title, subtitle }) => (
+            <article
+              key={id}
+              className={`${styles.card} ${activeFilter !== 'all' && activeFilter !== category ? styles.hidden : ''}`}
             >
-              {label}
-            </button>
+              <div className={styles.cardMedia}>
+                <div className={styles.cardPlaceholder}>
+                  <span className={styles.cardPlaceholderLabel}>4 × 3</span>
+                </div>
+              </div>
+              <div className={styles.cardBody}>
+                <span className={styles.cardTag}>{tag}</span>
+                <h3 className={styles.cardTitle}>{title}</h3>
+                <p className={styles.cardSubtitle}>{subtitle}</p>
+              </div>
+            </article>
           ))}
         </div>
-      </div>
 
-      <div className={styles.grid}>
-        {CARDS.map(({ id, category, tag, title, subtitle }) => (
-          <article
-            key={id}
-            className={`${styles.card} ${activeFilter !== 'all' && activeFilter !== category ? styles.hidden : ''}`}
-          >
-            <div className={styles.cardMedia}>
-              <div className={styles.cardPlaceholder}>
-                <span className={styles.cardPlaceholderLabel}>4 × 3</span>
-              </div>
-            </div>
-            <div className={styles.cardBody}>
-              <span className={styles.cardTag}>{tag}</span>
-              <h3 className={styles.cardTitle}>{title}</h3>
-              <p className={styles.cardSubtitle}>{subtitle}</p>
-            </div>
-          </article>
-        ))}
-      </div>
-
-    </section>
+      </Container>
+    </Section>
   )
 }

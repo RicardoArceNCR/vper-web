@@ -1,5 +1,7 @@
 .
+├── AUDITORIA_DESIGN_SYSTEM.md
 ├── README.md
+├── archivos-importantes.txt
 ├── design-system
 │   └── tokens
 │       ├── build
@@ -49,12 +51,22 @@
 │   │   ├── Nav
 │   │   │   ├── Nav.jsx
 │   │   │   └── Nav.module.css
-│   │   └── Work
-│   │       ├── Work.jsx
-│   │       └── Work.module.css
+│   │   ├── Work
+│   │   │   ├── Work.jsx
+│   │   │   └── Work.module.css
+│   │   └── ui
+│   │       ├── Button
+│   │       │   ├── Button.jsx
+│   │       │   └── Button.module.css
+│   │       ├── Container
+│   │       │   ├── Container.jsx
+│   │       │   └── Container.module.css
+│   │       └── Section
+│   │           ├── Section.jsx
+│   │           └── Section.module.css
 │   ├── index.css
 │   └── main.jsx
 ├── tailwind.config.js
 └── vite.config.js
 
-17 directories, 41 files
+21 directories, 49 files

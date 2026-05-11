@@ -1,4 +1,5 @@
 import styles from './Hero.module.css'
+import Button from '../ui/Button/Button'
 
 export default function Hero() {
   return (
@@ -17,8 +18,8 @@ export default function Hero() {
       </p>
 
       <div className={styles.cta}>
-        <a href="#contact" className="btn btn--secondary">Schedule a call</a>
-        <a href="#work" className="btn btn--primary">View Work</a>
+        <Button href="#contact" variant="secondary">Schedule a call</Button>
+        <Button href="#work" variant="primary">View Work</Button>
       </div>
 
     </section>

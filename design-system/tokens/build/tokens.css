@@ -24,14 +24,9 @@
   --opacity-60: 0.6;
   --opacity-72: 0.72;
   --opacity-80: 0.8;
+  --opacity-none: 0;
   --opacity-04: 0.04;
   --opacity-08: 0.08;
-  --opacity-xs: rgba(0, 0, 0, 0.0005);
-  --opacity-sm: rgba(0, 0, 0, 0.0008);
-  --opacity-md: rgba(0, 0, 0, 0.0012);
-  --opacity-lg: rgba(0, 0, 0, 0.0016);
-  --opacity-xl: rgba(0, 0, 0, 0.002);
-  --opacity-none: rgba(0, 0, 0, 0);
   --breakpoint-sm: 640;
   --breakpoint-md: 768;
   --breakpoint-lg: 1024;
@@ -116,6 +111,8 @@
   --typography-weight-semibold: 600;
   --typography-weight-bold: 700;
   --typography-letter-spacing-button: 0.01;
+  --typography-letter-spacing-tight: -0.04;
+  --typography-letter-spacing-heading: -0.06;
   --radius-none: 0px;
   --radius-sm: 4px;
   --radius-md: 8px;
@@ -144,9 +141,9 @@
   --border-width-md: 4px;
   --border-width-lg: 8px;
   --border-width-xl: 12px;
-  --border-width-full: 16px;
+  --border-width-full: 9999px;
+  --border-width-hairline: 1px;
   --background-none: rgba(255, 255, 255, 0);
-  --focus-ring-width: 2px;
   --focus-offset: 2px;
   --focus-ring-focus-ring-offset: 2px;
   --focus-ring-focus-ring-width: 2px;
@@ -164,6 +161,10 @@
   --overlay-hover: rgba(0, 0, 0, 0.0008);
   --overlay-active: rgba(0, 0, 0, 0.0012);
   --overlay-medium: rgba(0, 0, 0, 0.006);
+  --layout-container-max-width: 1280;
+  --motion-fast: 150;
+  --motion-normal: 250;
+  --motion-slow: 400;
   --button-primary-border-active: var(--color-brand-orange-400);
   --button-secondary-bg: var(--background-none);
   --button-secondary-bg-hover: var(--interaction-hover-subtle);
@@ -255,6 +256,9 @@
   --layout-header-navbar-gap-x: var(--spacing-4);
   --layout-container-padding-y: var(--spacing-8);
   --layout-container-padding-x: var(--spacing-6);
+  --layout-section-spacing-y-mobile: var(--spacing-10);
+  --layout-section-spacing-y: var(--spacing-16);
+  --layout-grid-gap: var(--spacing-6);
   --button-primary-bg-hover: var(--brand-strong);
   --button-primary-bg: var(--brand-main);
   --button-primary-bg-active: var(--brand-stronger);
@@ -293,6 +297,7 @@
   --pill-base-bg: var(--surface-base);
   --pill-text-bg: var(--surface-base);
   --border-brand: var(--brand-main);
+  --surface-hover: var(--surface-raised);
   --focus-ring-color: var(--brand-main);
   --focus-ring-focus-ring-offset-color: var(--background-base);
   --focus-ring-offset: var(--background-base);

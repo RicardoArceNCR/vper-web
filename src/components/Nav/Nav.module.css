@@ -8,12 +8,13 @@
 }
 
 .nav {
+  padding: var(--layout-header-padding-y) 0;
+}
+
+.navInner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: var(--layout-header-padding-y) var(--layout-header-padding-x);
-  max-width: 1280px;
-  margin: 0 auto;
 }
 
 .logo {
@@ -23,8 +24,8 @@
   flex-shrink: 0;
   font-family: 'Gotham', sans-serif;
   font-weight: 900;
-  font-size: 20px;
-  letter-spacing: -0.5px;
+  font-size: var(--typography-size-xl);
+  letter-spacing: var(--typography-letter-spacing-tight);
   color: var(--text-color-primary);
   text-transform: uppercase;
 }
@@ -41,7 +42,7 @@
   border: none;
   cursor: pointer;
   border-radius: var(--radius-sm);
-  transition: background-color 150ms ease;
+  transition: background-color var(--motion-fast);
 }
 
 .hamburger:hover {
@@ -118,7 +119,7 @@
   text-decoration: none;
   color: var(--nav-item-color);
   border-radius: var(--radius-sm);
-  transition: color 150ms ease, background-color 150ms ease;
+  transition: color var(--motion-fast), background-color var(--motion-fast);
 }
 
 .link:hover {
