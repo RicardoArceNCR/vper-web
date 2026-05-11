@@ -1,446 +1,754 @@
 # vper-web
 
-Sitio web de **VPER Media** — agencia creativa, Nicaragua.  
-Stack: Vite + React 18 + CSS Modules + Design Tokens (Figma → Style Dictionary).
+Sitio web oficial de **VPER Media** — agencia creativa enfocada en campañas, contenido y experiencias digitales.
+
+Stack actual:
+
+* React 18
+* Vite
+* CSS Modules
+* Design Tokens
+* Figma Variables
+* Style Dictionary
+
+El proyecto utiliza una arquitectura moderna basada en:
+
+```txt
+Figma → JSON → Style Dictionary → tokens.css → React Components
+```
 
 ---
 
-## Cómo funciona el sistema completo
+# Estado actual
 
+## Arquitectura
+
+```txt
+✓ Vite + React funcionando
+✓ CSS Modules integrados
+✓ Design Tokens funcionando
+✓ Pipeline Figma → Style Dictionary estable
+✓ tokens.css consumido automáticamente por React
+✓ Arquitectura UI reusable creada
+✓ Footer enterprise responsive
+✓ Container responsive
+✓ Section reusable
+✓ Sistema de spacing funcional
+✓ Social icons premium
+✓ Responsive mobile funcional
 ```
+
+## Pendiente
+
+```txt
+⏳ Formulario conectado con backend
+⏳ Work cards con contenido real
+⏳ Sección Services
+⏳ Sección About
+⏳ SEO completo
+⏳ Deploy producción
+```
+
+---
+
+# Arquitectura completa del sistema
+
+```txt
 ┌─────────────────────────────────────────────────────────────────┐
-│  FIGMA                                                          │
-│  Collections: numbers · primitivos · semanticos · componentes   │
-│  Plugin: Export/Import Variables → exportar a JSON              │
+│ FIGMA                                                          │
+│ Collections:                                                   │
+│ - numbers                                                      │
+│ - primitivos                                                   │
+│ - semanticos                                                   │
+│ - componentes                                                  │
 └────────────────────────────┬────────────────────────────────────┘
-                             │ Copiar 4 JSONs a source/raw/
+                             │ Export JSON
                              ▼
 ┌─────────────────────────────────────────────────────────────────┐
-│  design-system/tokens/source/raw/                               │
-│  numbers.json · primitivos.json · semanticos.json · componentes │
+│ design-system/tokens/source/raw/                               │
+│                                                                │
+│ numbers.json                                                   │
+│ primitivos.json                                                │
+│ semanticos.json                                                │
+│ componentes.json                                               │
 └────────────────────────────┬────────────────────────────────────┘
                              │ python3 figma-to-sd.py
-                             │ · Convierte RGBA float → hex
-                             │ · Resuelve aliases entre colecciones
-                             │ · Agrega unidades px donde corresponde
                              ▼
 ┌─────────────────────────────────────────────────────────────────┐
-│  design-system/tokens/source/   (no editar manualmente)         │
+│ design-system/tokens/source/                                   │
+│                                                                │
+│ Tokens transformados y normalizados                            │
 └────────────────────────────┬────────────────────────────────────┘
-                             │ npm run build  (dentro de tokens/)
-                             │ Style Dictionary resuelve referencias
+                             │ npm run build
                              ▼
 ┌─────────────────────────────────────────────────────────────────┐
-│  design-system/tokens/build/tokens.css                          │
-│                                                                 │
-│  :root {                                                        │
-│    --brand-main: #f98516;                                       │
-│    --button-primary-bg: var(--brand-main);                      │
-│    --text-color-primary: #ffffff;                               │
-│    --spacing-4: 16px;                                           │
-│    --button-base-radius: 9999px;                                │
-│    ... 312 variables                                            │
-│  }                                                              │
+│ design-system/tokens/build/                                    │
+│                                                                │
+│ tokens.css                                                     │
+│ tokens.js                                                      │
 └────────────────────────────┬────────────────────────────────────┘
-                             │ import '../design-system/tokens/build/tokens.css'
-                             │ Una sola línea en src/main.jsx
+                             │ import en main.jsx
                              ▼
 ┌─────────────────────────────────────────────────────────────────┐
-│  src/ — React + CSS Modules                                     │
-│                                                                 │
-│  Cualquier CSS Module usa los tokens directamente:              │
-│                                                                 │
-│  .hero {                                                        │
-│    background-color: var(--surface-subtle);                     │
-│    padding: var(--spacing-16) var(--layout-header-padding-x);   │
-│  }                                                              │
+│ src/ React + CSS Modules                                       │
+│                                                                │
+│ Los componentes consumen variables CSS directamente            │
 └────────────────────────────┬────────────────────────────────────┘
-                             │ npm run build  (raíz del proyecto)
+                             │ npm run build
                              ▼
 ┌─────────────────────────────────────────────────────────────────┐
-│  dist/   ← subir contenido a Hostinger / public_html/           │
+│ dist/                                                          │
+│                                                                │
+│ Build final para producción                                    │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
-## Estructura del repositorio
+# Estructura del repositorio
 
-```
+```txt
 vper-web/
 │
 ├── design-system/
 │   └── tokens/
 │       ├── source/
-│       │   ├── raw/                ← JSONs exportados de Figma (no editar)
+│       │   ├── raw/
 │       │   │   ├── numbers.json
 │       │   │   ├── primitivos.json
 │       │   │   ├── semanticos.json
 │       │   │   └── componentes.json
-│       │   ├── numbers.json        ← Generado por figma-to-sd.py
-│       │   ├── primitivos.json       NO editar manualmente
+│       │   │
+│       │   ├── numbers.json
+│       │   ├── primitivos.json
 │       │   ├── semanticos.json
 │       │   └── componentes.json
+│       │
 │       ├── build/
-│       │   ├── tokens.css          ← OUTPUT FINAL — fuente de verdad de estilos
-│       │   └── tokens.js           ← Mismo contenido como ES Module
-│       ├── figma-to-sd.py          ← Transformador Figma JSON → Style Dictionary
+│       │   ├── tokens.css
+│       │   └── tokens.js
+│       │
+│       ├── figma-to-sd.py
 │       ├── style-dictionary.config.js
-│       └── package.json            ← Scripts: build, watch
+│       └── package.json
 │
 ├── src/
 │   ├── components/
+│   │   ├── ui/
+│   │   │   ├── Button/
+│   │   │   │   ├── Button.jsx
+│   │   │   │   └── Button.module.css
+│   │   │   │
+│   │   │   ├── Container/
+│   │   │   │   ├── Container.jsx
+│   │   │   │   └── Container.module.css
+│   │   │   │
+│   │   │   └── Section/
+│   │   │       ├── Section.jsx
+│   │   │       └── Section.module.css
+│   │   │
 │   │   ├── Nav/
-│   │   │   ├── Nav.jsx             ← Header sticky, hamburger animado
-│   │   │   └── Nav.module.css
 │   │   ├── Hero/
-│   │   │   ├── Hero.jsx            ← Pill + heading + CTAs
-│   │   │   └── Hero.module.css
 │   │   ├── LogoStrip/
-│   │   │   ├── LogoStrip.jsx       ← Marquee animado, reduced-motion
-│   │   │   └── LogoStrip.module.css
 │   │   ├── Work/
-│   │   │   ├── Work.jsx            ← Grid + filtros por categoría (useState)
-│   │   │   └── Work.module.css
 │   │   ├── Contact/
-│   │   │   ├── Contact.jsx         ← Formulario controlado (useState)
-│   │   │   └── Contact.module.css
 │   │   └── Footer/
-│   │       ├── Footer.jsx          ← 3 columnas: logo, nav, contacto
-│   │       └── Footer.module.css
-│   ├── App.jsx                     ← Compone todos los componentes
-│   ├── main.jsx                    ← Punto de entrada — importa tokens.css aquí
-│   └── index.css                   ← Reset global + clases .btn compartidas
+│   │
+│   ├── App.jsx
+│   ├── main.jsx
+│   └── index.css
 │
-├── public/                         ← Assets estáticos (favicon, og-image, etc.)
-├── dist/                           ← Build de producción (gitignored)
-├── primeros pasos/
-│   ├── index.html                  ← Prototipo HTML original (referencia visual)
-│   ├── PROXIMOS-PASOS-VPER.md
-│   └── README-DESIGN-SYSTEM.md
-├── index.html                      ← Shell HTML de Vite
-├── vite.config.js
-└── package.json                    ← Scripts: dev, build, preview
+├── public/
+├── dist/
+├── index.html
+├── package.json
+└── vite.config.js
 ```
 
 ---
 
-## Comandos de desarrollo
+# Design System
+
+## Filosofía
+
+El proyecto sigue una arquitectura de tokens en capas:
+
+```txt
+Primitivos
+↓
+Semánticos
+↓
+Componentes
+↓
+React UI
+```
+
+---
+
+## Colecciones
+
+### numbers
+
+Valores numéricos reutilizables:
+
+```txt
+- opacity
+- breakpoints
+- helpers
+```
+
+---
+
+### primitivos
+
+Tokens base:
+
+```txt
+- color
+- spacing
+- typography
+- radius
+- border
+```
+
+---
+
+### semanticos
+
+Tokens de intención UI:
+
+```txt
+- background
+- surface
+- text
+- interaction
+- focus
+- feedback
+- layout
+- motion
+```
+
+---
+
+### componentes
+
+Tokens específicos de componentes:
+
+```txt
+- button
+- nav
+- pill
+- input
+```
+
+---
+
+# Arquitectura UI
+
+## UI primitives
+
+### Container
+
+Responsable de:
+
+```txt
+- max-width
+- padding lateral
+- centrado
+- responsive spacing
+```
+
+Uso:
+
+```jsx
+<Container>
+  <Contenido />
+</Container>
+```
+
+---
+
+### Section
+
+Responsable de:
+
+```txt
+- spacing vertical consistente
+- separación entre bloques
+```
+
+Uso:
+
+```jsx
+<Section>
+  <Contenido />
+</Section>
+```
+
+---
+
+### Button
+
+Responsable de:
+
+```txt
+- variantes
+- estados
+- transitions
+- accesibilidad
+```
+
+Uso:
+
+```jsx
+<Button variant="primary">
+  Contact us
+</Button>
+```
+
+---
+
+# Tokens más usados
+
+## Surface
+
+```css
+--surface-subtle
+--surface-base
+--surface-raised
+--surface-hover
+```
+
+---
+
+## Texto
+
+```css
+--text-color-primary
+--text-color-secondary
+--text-color-inverse
+```
+
+---
+
+## Marca
+
+```css
+--brand-main
+--brand-contrast
+```
+
+---
+
+## Spacing
+
+```css
+--spacing-2
+--spacing-4
+--spacing-6
+--spacing-8
+--spacing-10
+--spacing-12
+--spacing-16
+```
+
+---
+
+## Typography
+
+```css
+--typography-size-sm
+--typography-size-md
+--typography-size-xl
+--typography-size-display
+--typography-size-display-xl
+```
+
+---
+
+## Motion
+
+```css
+--motion-fast
+--motion-normal
+--motion-slow
+```
+
+---
+
+## Layout
+
+```css
+--layout-container-max-width
+--layout-container-padding-x
+--layout-section-spacing-y
+```
+
+---
+
+# Reglas del Design System
+
+## Nunca usar
+
+```txt
+✗ colores hardcodeados
+✗ spacing manual
+✗ border-radius manual
+✗ transitions inline
+✗ px hardcodeados cuando existe token
+```
+
+---
+
+## Siempre usar
+
+```txt
+✓ semantic tokens
+✓ component tokens
+✓ spacing scale
+✓ Container
+✓ Section
+✓ Button reusable
+```
+
+---
+
+# Desarrollo
+
+## Levantar proyecto
 
 ```bash
-# Levantar servidor local → http://localhost:5173
+npm install
 npm run dev
+```
 
-# Build de producción → genera dist/
+Servidor:
+
+```txt
+http://localhost:5173
+```
+
+---
+
+## Build producción
+
+```bash
 npm run build
+```
 
-# Preview del build antes de subir → http://localhost:4173
+Genera:
+
+```txt
+/dist
+```
+
+---
+
+## Preview local del build
+
+```bash
 npm run preview
 ```
 
 ---
 
-## Flujo completo: actualizar tokens desde Figma
+# Flujo completo de tokens
 
-Este es el ciclo cada vez que haya cambios de diseño en Figma.
+## Paso 1 — Exportar desde Figma
 
-### Paso 1 — Exportar de Figma
+Exportar:
 
-En Figma: **Plugins → Export/Import Variables → Export to JSON**
-
-Exportar las 4 colecciones y guardar en `design-system/tokens/source/raw/` con estos nombres exactos:
-
-```
+```txt
 numbers.json
 primitivos.json
 semanticos.json
 componentes.json
 ```
 
-### Paso 2 — Transformar
+Copiar a:
+
+```txt
+design-system/tokens/source/raw/
+```
+
+---
+
+## Paso 2 — Transformar
 
 ```bash
 cd design-system/tokens
 python3 figma-to-sd.py
 ```
 
-Output esperado:
+---
 
-```
-Figma → Style Dictionary
-
-✓ Mapa de IDs construido: 312 variables
-
-✓ numbers.json     → source/numbers.json     (24 tokens)
-✓ primitivos.json  → source/primitivos.json  (148 tokens)
-✓ semanticos.json  → source/semanticos.json  (89 tokens)
-✓ componentes.json → source/componentes.json (51 tokens)
-
-✓ Total: 312 tokens procesados
-  Ejecuta: npm run build
-```
-
-### Paso 3 — Compilar tokens a CSS
+## Paso 3 — Build tokens
 
 ```bash
 npm run build
-# Regenera build/tokens.css y build/tokens.js
 ```
 
-### Paso 4 — Volver a la raíz
+Genera:
+
+```txt
+build/tokens.css
+build/tokens.js
+```
+
+---
+
+## Paso 4 — Volver a React
 
 ```bash
 cd ../..
-# Si npm run dev está corriendo, Vite recarga automático
-# Si no:
 npm run dev
 ```
 
----
-
-## Cómo usar los tokens en un CSS Module
-
-Los tokens están disponibles en cualquier CSS Module sin imports adicionales —
-ya están en `:root` gracias al import en `main.jsx`.
-
-### Regla de oro: usar la capa más específica
-
-```css
-/* ✗ MAL — valor hardcodeado */
-color: #f98516;
-
-/* ✗ MAL — primitivo directo */
-color: var(--color-brand-orange-500);
-
-/* ✓ BIEN — token semántico */
-color: var(--brand-main);
-
-/* ✓ MEJOR — token de componente (cuando existe) */
-background-color: var(--button-primary-bg);
-```
-
-### Referencia de tokens más usados
-
-```css
-/* ── Superficies ── */
---surface-subtle          /* fondo general de página */
---surface-base            /* fondo de secciones alternas */
---surface-raised          /* fondo de cards e inputs */
-
-/* ── Texto ── */
---text-color-primary      /* texto principal */
---text-color-secondary    /* texto muted / subtítulos */
---text-color-inverse      /* texto sobre fondo oscuro */
-
-/* ── Marca ── */
---brand-main              /* naranja #f98516 */
---brand-contrast          /* texto sobre fondo naranja */
-
-/* ── Espaciado (escala 4px) ── */
---spacing-2   /* 8px  */     --spacing-8   /* 32px */
---spacing-4   /* 16px */     --spacing-12  /* 48px */
---spacing-6   /* 24px */     --spacing-16  /* 64px */
-
-/* ── Tipografía ── */
---typography-size-sm              /* 14px */
---typography-size-md              /* 16px */
---typography-size-xl              /* 20px */
---typography-size-display         /* 48px */
---typography-size-display-xl      /* 80px */
---typography-weight-medium
---typography-weight-bold
---typography-letter-spacing-button
-
-/* ── Layout ── */
---layout-header-padding-x         /* 24px */
---layout-header-padding-y         /* 16px */
---layout-header-navbar-gap-x      /* 16px */
-
-/* ── Botones ── */
---button-primary-bg               --button-secondary-bg
---button-primary-bg-hover         --button-secondary-border
---button-primary-border           --button-secondary-text
---button-primary-text
---button-base-radius              /* 9999px (pill) */
---button-base-transitions
---button-text-size-md             /* 16px */
---button-size-xl-padding-x
---button-size-xl-padding-y
-
-/* ── Nav ── */
---nav-bg
---nav-border
---nav-item-color
---nav-item-color-active
-
-/* ── Pills ── */
---pill-base-radius
---pill-base-border-width
---pill-base-padding-x
---pill-base-padding-y
---pill-informative-border
---pill-informative-text
-
-/* ── Bordes ── */
---radius-sm
---border-subtle
---border-brand
---border-inverse
-
-/* ── Focus (accesibilidad) ── */
---focus-ring-color
---focus-ring-width
---focus-offset
-```
+Vite recarga automáticamente.
 
 ---
 
-## Cómo agregar un componente nuevo
+# Cómo crear un componente nuevo
+
+## Crear estructura
 
 ```bash
-# 1. Crear archivos
 mkdir src/components/Services
-touch src/components/Services/Services.jsx
-touch src/components/Services/Services.module.css
 ```
 
-**`Services.jsx`**
+---
+
+## Services.jsx
 
 ```jsx
 import styles from './Services.module.css'
+import Section from '../ui/Section/Section'
+import Container from '../ui/Container/Container'
 
 export default function Services() {
   return (
-    <section className={styles.services} id="services">
-      <h2 className={styles.title}>Services</h2>
-    </section>
+    <Section>
+      <Container>
+        <section className={styles.services}>
+          <h2 className={styles.title}>Services</h2>
+        </section>
+      </Container>
+    </Section>
   )
 }
 ```
 
-**`Services.module.css`**
+---
+
+## Services.module.css
 
 ```css
 .services {
   width: 100%;
-  padding: var(--spacing-16) var(--layout-header-padding-x);
-  background-color: var(--surface-base);
 }
 
 .title {
-  font-family: 'Gotham', sans-serif;
-  font-weight: 900;
   font-size: var(--typography-size-display);
   color: var(--text-color-primary);
-  text-transform: uppercase;
-}
-
-.title::after {
-  content: '.';
-  color: var(--brand-main);
 }
 ```
 
-**`App.jsx`** — agregar import y JSX:
-
-```jsx
-import Services from './components/Services/Services'
-
-// En el return, entre Work y Contact:
-<Work />
-<Services />
-<Contact />
-```
-
 ---
 
-## Deploy en Hostinger
+# Deploy
 
-### Preparación antes del primer deploy
-
-Crear `public/.htaccess` (Vite lo copia a `dist/` automáticamente en cada build):
-
-```apache
-Options -MultiViews
-RewriteEngine On
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^ index.html [QSA,L]
-```
-
-Sin este archivo, las URLs directas (ej: `vpermedia.com/#contact`) pueden fallar.
-
-### Deploy
-
-```bash
-# 1. Build de producción
-npm run build
-
-# 2. En Hostinger:
-#    Panel → File Manager → public_html/
-#    Subir el CONTENIDO de dist/ (no la carpeta dist/ en sí)
-#    El index.html de dist/ debe quedar en public_html/index.html
-```
-
-### Actualizar el sitio después de cambios
+## Build
 
 ```bash
 npm run build
-# Subir dist/ a Hostinger nuevamente
 ```
 
 ---
 
-## Nota sobre los dos `node_modules`
+## Hostinger
 
+Subir el contenido de:
+
+```txt
+dist/
 ```
-vper-web/node_modules/              ← dependencias de Vite + React
-design-system/tokens/node_modules/  ← dependencias de Style Dictionary
+
+hacia:
+
+```txt
+public_html/
 ```
 
-Son dos proyectos Node independientes en el mismo repo. Esto es correcto — no eliminar ninguno.
+---
+
+## Importante
+
+Subir:
+
+```txt
+contenido de dist/
+```
+
+NO:
+
+```txt
+dist/
+```
+
+como carpeta.
 
 ---
 
-## Estado actual de los componentes
+# Responsive
 
-| Componente | Estado | Notas |
-|---|---|---|
-| Nav | ✓ Completo | Sticky, hamburger animado, Escape key, click outside, aria |
-| Hero | ✓ Completo | Pill + heading responsive mobile → desktop |
-| LogoStrip | ✓ Completo | Marquee, reduced-motion, aria-hidden en duplicado |
-| Work | ⚠ Placeholder | Grid + filtros funcionan — cards con datos ficticios |
-| Contact | ⚠ Sin backend | Form controlado listo — falta Formspree |
-| Footer | ✓ Completo | 3 columnas responsive |
-| Services | ✗ Pendiente | Link en nav sin sección |
-| About | ✗ Pendiente | Link en nav sin sección |
+El proyecto está optimizado para:
 
----
+```txt
+✓ Mobile
+✓ Tablet
+✓ Desktop
+```
 
-## Próximos pasos
+Incluye:
 
-| # | Tarea | Tiempo estimado |
-|---|---|---|
-| 1 | Conectar Contact con Formspree | 30 min |
-| 2 | Agregar meta tags SEO y og:image en `index.html` | 15 min |
-| 3 | Crear `public/.htaccess` y deploy en Hostinger | 30 min |
-| 4 | Work cards con proyectos reales + imágenes en `public/work/` | 2-3h |
-| 5 | Crear sección Services | 2-3h |
-| 6 | Crear sección About | 2-3h |
+```txt
+- spacing responsive
+- typography fluid
+- responsive grids
+- mobile navigation
+- responsive footer
+```
 
 ---
 
-## Proyectos relacionados
+# Estado actual de componentes
 
-| Proyecto | Stack | Estado |
-|---|---|---|
-| vper-web (este repo) | Vite + React + CSS Modules | ✓ Corriendo en localhost:5173 |
-| Divergentes | WordPress + PHP + Bootstrap | ✓ Productivo |
+| Componente | Estado       | Notas                     |
+| ---------- | ------------ | ------------------------- |
+| Nav        | ✓            | Sticky + mobile nav       |
+| Hero       | ✓            | Responsive + CTAs         |
+| LogoStrip  | ✓            | Marquee accesible         |
+| Work       | ⚠            | Placeholder data          |
+| Contact    | ⚠            | Falta backend             |
+| Footer     | ✓ Enterprise | Responsive + social icons |
+| Button     | ✓            | Reusable                  |
+| Container  | ✓            | Responsive                |
+| Section    | ✓            | Reusable                  |
+| Services   | ✗            | Pendiente                 |
+| About      | ✗            | Pendiente                 |
 
 ---
 
-## Equipo
+# Próximas fases
 
-| Rol | Persona |
-|---|---|
-| Diseño + Design System | Ricardo Arce |
-| Desarrollo | Heriberto Garcia |
+## Fase 1 — Hardening UI
+
+```txt
+- consolidar typography
+- limpiar legacy CSS
+- revisar tablet spacing
+- eliminar fallbacks viejos
+- standardizar estados
+```
+
+---
+
+## Fase 2 — Contenido real
+
+```txt
+- work cards reales
+- servicios reales
+- about real
+- imágenes optimizadas
+```
+
+---
+
+## Fase 3 — Producción
+
+```txt
+- Formspree
+- SEO
+- OG image
+- deploy Hostinger
+- analytics
+```
+
+---
+
+## Fase 4 — Escalabilidad
+
+```txt
+- GitHub Actions
+- automatización tokens
+- CMS/headless
+- WordPress integration
+```
+
+---
+
+# Proyectos relacionados
+
+| Proyecto    | Stack             |
+| ----------- | ----------------- |
+| vper-web    | React + Vite      |
+| Divergentes | WordPress + PHP   |
+| GOBi        | Next.js + FastAPI |
+
+---
+
+# Equipo
+
+| Rol                    | Persona          |
+| ---------------------- | ---------------- |
+| Diseño + Design System | Ricardo Arce     |
+| Desarrollo             | Heriberto Garcia |
+
+---
+
+# Notas importantes
+
+## Dos node_modules
+
+```txt
+vper-web/node_modules/
+design-system/tokens/node_modules/
+```
+
+Esto es correcto.
+
+Son dos proyectos Node separados.
+
+---
+
+## Fuente de verdad
+
+La fuente de verdad del sistema visual es:
+
+```txt
+Figma Variables
+```
+
+NO modificar manualmente:
+
+```txt
+design-system/tokens/source/*.json
+```
+
+porque son generados automáticamente.
+
+---
+
+## Regla importante
+
+Siempre modificar:
+
+```txt
+Figma → export → transform → build
+```
+
+Nunca:
+
+```txt
+editar tokens.css manualmente
+```
