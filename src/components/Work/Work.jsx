@@ -22,6 +22,10 @@ const CARDS = [
 export default function Work() {
   const [activeFilter, setActiveFilter] = useState('all')
 
+  const visibleCards = CARDS.filter(card =>
+    activeFilter === 'all' || card.category === activeFilter
+  )
+
   return (
     <Section className={styles.work} aria-labelledby="work-title" id="work">
       <Container>
@@ -44,10 +48,10 @@ export default function Work() {
         </div>
 
         <div className={styles.grid}>
-          {CARDS.map(({ id, category, tag, title, subtitle }) => (
+          {visibleCards.map(({ id, category, tag, title, subtitle }) => (
             <article
               key={id}
-              className={`${styles.card} ${activeFilter !== 'all' && activeFilter !== category ? styles.hidden : ''}`}
+              className={styles.card}
             >
               <div className={styles.cardMedia}>
                 <div className={styles.cardPlaceholder}>

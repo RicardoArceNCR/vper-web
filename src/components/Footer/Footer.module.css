@@ -9,7 +9,7 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--spacing-10);
-  padding: var(--spacing-12) 0;
+  padding: 0;
 }
 
 @media (min-width: 768px) {
@@ -33,6 +33,13 @@
   text-decoration: none;
   margin-bottom: var(--spacing-3);
   display: block;
+}
+
+.tagline,
+.navLink,
+.copy {
+  font-family: 'Gotham', sans-serif;
+  font-weight: var(--typography-weight-regular);
 }
 
 .tagline {
@@ -64,7 +71,7 @@
   font-size: var(--typography-size-sm);
   color: var(--nav-item-color);
   text-decoration: none;
-  transition: color var(--motion-fast, 150ms ease);
+  transition: color calc(var(--motion-fast, 150) * 1ms) ease;
   padding: var(--spacing-1) 0;
   display: block;
 }

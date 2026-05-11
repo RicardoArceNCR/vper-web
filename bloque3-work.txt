@@ -1,3 +1,79 @@
+========================================
+FILE: src/components/Work/Work.jsx
+========================================
+import { useState } from 'react'
+import styles from './Work.module.css'
+import Container from '../ui/Container/Container'
+import Section from '../ui/Section/Section'
+
+const FILTERS = [
+  { label: 'Todos',    value: 'all' },
+  { label: 'Branding', value: 'branding' },
+  { label: 'Diseño',   value: 'diseno' },
+  { label: 'Campañas', value: 'campanas' },
+]
+
+const CARDS = [
+  { id: 1, category: 'branding',  tag: 'Branding', title: 'Brand Strategy', subtitle: 'Brand Campaign' },
+  { id: 2, category: 'diseno',    tag: 'Diseño',   title: 'Brand Strategy', subtitle: 'Brand Campaign' },
+  { id: 3, category: 'campanas',  tag: 'Campañas', title: 'Brand Strategy', subtitle: 'Brand Campaign' },
+  { id: 4, category: 'branding',  tag: 'Branding', title: 'Brand Strategy', subtitle: 'Brand Campaign' },
+  { id: 5, category: 'diseno',    tag: 'Diseño',   title: 'Brand Strategy', subtitle: 'Brand Campaign' },
+  { id: 6, category: 'campanas',  tag: 'Campañas', title: 'Brand Strategy', subtitle: 'Brand Campaign' },
+]
+
+export default function Work() {
+  const [activeFilter, setActiveFilter] = useState('all')
+
+  return (
+    <Section className={styles.work} aria-labelledby="work-title" id="work">
+      <Container>
+
+        <div className={styles.header}>
+          <h2 className={styles.title} id="work-title">Selected Work</h2>
+          <p className={styles.subtitle}>Proyectos que hablan por sí solos.</p>
+          <div className={styles.filters} role="group" aria-label="Filtrar por categoría">
+            {FILTERS.map(({ label, value }) => (
+              <button
+                key={value}
+                className={`${styles.filterBtn} ${activeFilter === value ? styles.active : ''}`}
+                onClick={() => setActiveFilter(value)}
+                aria-pressed={activeFilter === value}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div className={styles.grid}>
+          {CARDS.map(({ id, category, tag, title, subtitle }) => (
+            <article
+              key={id}
+              className={`${styles.card} ${activeFilter !== 'all' && activeFilter !== category ? styles.hidden : ''}`}
+            >
+              <div className={styles.cardMedia}>
+                <div className={styles.cardPlaceholder}>
+                  <span className={styles.cardPlaceholderLabel}>4 × 3</span>
+                </div>
+              </div>
+              <div className={styles.cardBody}>
+                <span className={styles.cardTag}>{tag}</span>
+                <h3 className={styles.cardTitle}>{title}</h3>
+                <p className={styles.cardSubtitle}>{subtitle}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+
+      </Container>
+    </Section>
+  )
+}
+
+========================================
+FILE: src/components/Work/Work.module.css
+========================================
 .work {
   background-color: var(--surface-subtle);
 }
@@ -73,7 +149,7 @@
   text-transform: uppercase;
   color: var(--text-color-primary);
   cursor: pointer;
-  transition: color calc(var(--motion-fast, 150) * 1ms) ease, border-color calc(var(--motion-fast, 150) * 1ms) ease, background-color calc(var(--motion-fast, 150) * 1ms) ease;
+  transition: color var(--motion-fast, 150ms ease), border-color var(--motion-fast, 150ms ease), background-color var(--motion-fast, 150ms ease);
   white-space: nowrap;
 }
 
@@ -103,9 +179,14 @@
   flex-direction: column;
   gap: var(--spacing-4);
   cursor: pointer;
-  transition: opacity calc(var(--motion-normal, 250) * 1ms) ease, transform calc(var(--motion-normal, 250) * 1ms) ease;
+  transition: opacity var(--motion-normal, 200ms ease), transform var(--motion-normal, 200ms ease);
 }
 
+.card.hidden {
+  opacity: 0;
+  transform: scale(0.97);
+  pointer-events: none;
+}
 
 .cardMedia {
   aspect-ratio: 4 / 3;
@@ -121,7 +202,7 @@
   align-items: center;
   justify-content: center;
   background-color: var(--surface-raised);
-  transition: transform calc(var(--motion-slow, 400) * 1ms) ease;
+  transition: transform var(--motion-slow, 300ms ease);
 }
 
 .card:hover .cardPlaceholder {
@@ -186,3 +267,4 @@
     gap: var(--spacing-8);
   }
 }
+

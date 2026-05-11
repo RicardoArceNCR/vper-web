@@ -1,6 +1,6 @@
 .container {
   width: 100%;
-  max-width: var(--layout-container-max-width, 1280px);
+  max-width: calc(var(--layout-container-max-width, 1280) * 1px);
   margin: 0 auto;
   padding-left: var(--layout-container-padding-x, var(--spacing-6));
   padding-right: var(--layout-container-padding-x, var(--spacing-6));

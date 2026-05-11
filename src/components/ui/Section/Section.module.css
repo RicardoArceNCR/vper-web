@@ -1,4 +1,11 @@
 .section {
-  padding-top: var(--layout-container-padding-y, var(--spacing-16));
-  padding-bottom: var(--layout-container-padding-y, var(--spacing-16));
+  padding-top: var(--layout-section-spacing-y-mobile, var(--spacing-10));
+  padding-bottom: var(--layout-section-spacing-y-mobile, var(--spacing-10));
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding-top: var(--layout-section-spacing-y, var(--spacing-16));
+    padding-bottom: var(--layout-section-spacing-y, var(--spacing-16));
+  }
 }

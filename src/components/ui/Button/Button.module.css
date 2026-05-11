@@ -8,7 +8,7 @@
   border-radius: var(--button-base-radius);
   border: var(--button-base-border-width-md) solid;
   font-family: 'Gotham', sans-serif;
-  font-weight: 900;
+  font-weight: var(--typography-weight-bold);
   font-size: var(--button-text-size-md);
   line-height: var(--button-base-line-height);
   letter-spacing: var(--button-base-letter-spacing);
@@ -22,7 +22,7 @@
   background-color: var(--button-secondary-bg);
   border-color: var(--button-secondary-border);
   color: var(--button-secondary-text);
-  transition: background-color var(--motion-fast), color var(--motion-fast), border-color var(--motion-fast), transform var(--motion-fast);
+  transition: background-color calc(var(--motion-fast, 150) * 1ms) ease, color calc(var(--motion-fast, 150) * 1ms) ease, border-color calc(var(--motion-fast, 150) * 1ms) ease, transform calc(var(--motion-fast, 150) * 1ms) ease;
 }
 
 .btn--secondary:hover {
@@ -44,7 +44,7 @@
   background-color: var(--button-primary-bg);
   border-color: var(--button-primary-border);
   color: var(--button-primary-text);
-  transition: background-color var(--motion-fast), border-color var(--motion-fast), transform var(--motion-fast);
+  transition: background-color calc(var(--motion-fast, 150) * 1ms) ease, border-color calc(var(--motion-fast, 150) * 1ms) ease, transform calc(var(--motion-fast, 150) * 1ms) ease;
 }
 
 .btn--primary:hover {

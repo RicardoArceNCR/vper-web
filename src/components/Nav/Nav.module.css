@@ -42,7 +42,7 @@
   border: none;
   cursor: pointer;
   border-radius: var(--radius-sm);
-  transition: background-color var(--motion-fast);
+  transition: background-color calc(var(--motion-fast, 150) * 1ms) ease;
 }
 
 .hamburger:hover {
@@ -89,7 +89,7 @@
   visibility: hidden;
   opacity: 0;
   transform: translateY(-8px);
-  transition: opacity 200ms ease, transform 200ms ease, visibility 0ms linear 200ms;
+  transition: transform calc(var(--motion-normal, 250) * 1ms) ease, opacity calc(var(--motion-normal, 250) * 1ms) ease, visibility 0ms linear calc(var(--motion-normal, 250) * 1ms);
   pointer-events: none;
 }
 
@@ -97,7 +97,7 @@
   visibility: visible;
   opacity: 1;
   transform: translateY(0);
-  transition: opacity 200ms ease, transform 200ms ease, visibility 0ms;
+  transition: transform calc(var(--motion-normal, 250) * 1ms) ease, opacity calc(var(--motion-normal, 250) * 1ms) ease, visibility 0ms;
   pointer-events: auto;
 }
 
@@ -119,7 +119,7 @@
   text-decoration: none;
   color: var(--nav-item-color);
   border-radius: var(--radius-sm);
-  transition: color var(--motion-fast), background-color var(--motion-fast);
+  transition: color calc(var(--motion-fast, 150) * 1ms) ease, background-color calc(var(--motion-fast, 150) * 1ms) ease;
 }
 
 .link:hover {

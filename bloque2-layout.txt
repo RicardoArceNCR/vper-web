@@ -1,0 +1,529 @@
+========================================
+FILE: src/components/Nav/Nav.jsx
+========================================
+import { useState, useEffect, useRef } from 'react'
+import styles from './Nav.module.css'
+import Button from '../ui/Button/Button'
+import Container from '../ui/Container/Container'
+
+const NAV_LINKS = [
+  { label: 'Work',     href: '#work' },
+  { label: 'Services', href: '#services' },
+  { label: 'About',    href: '#about' },
+  { label: 'Contact',  href: '#contact' },
+]
+
+export default function Nav() {
+  const [isOpen, setIsOpen] = useState(false)
+  const hamburgerRef = useRef(null)
+  const menuRef = useRef(null)
+
+  const toggle = () => setIsOpen(prev => !prev)
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape' && isOpen) {
+        setIsOpen(false)
+        hamburgerRef.current?.focus()
+      }
+    }
+
+    const handleClickOutside = (e) => {
+      if (
+        !hamburgerRef.current?.contains(e.target) &&
+        !menuRef.current?.contains(e.target)
+      ) {
+        setIsOpen(false)
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyDown)
+    document.addEventListener('click', handleClickOutside)
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown)
+      document.removeEventListener('click', handleClickOutside)
+    }
+  }, [isOpen])
+
+  return (
+    <header className={styles.header}>
+      <nav className={styles.nav} aria-label="Navegación principal">
+        <Container className={styles.navInner}>
+
+          <a href="/" className={styles.logo} aria-label="VPER Media — Inicio">
+            VPER·MEDIA
+          </a>
+
+          <button
+            ref={hamburgerRef}
+            className={styles.hamburger}
+            aria-label={isOpen ? 'Cerrar menú' : 'Abrir menú'}
+            aria-expanded={isOpen}
+            aria-controls="nav-menu"
+            onClick={toggle}
+          >
+            <span className={styles.hamburgerLine} />
+            <span className={styles.hamburgerLine} />
+            <span className={styles.hamburgerLine} />
+          </button>
+
+          <div
+            ref={menuRef}
+            id="nav-menu"
+            className={`${styles.menu} ${isOpen ? styles.open : ''}`}
+          >
+            <ul className={styles.links}>
+              {NAV_LINKS.map(({ label, href }) => (
+                <li key={label}>
+                  <a
+                    href={href}
+                    className={`${styles.link} ${label === 'Work' ? styles.active : ''}`}
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <div className={styles.divider} aria-hidden="true" />
+            <Button href="#contact" variant="secondary" className={styles.cta}>
+              Schedule a call
+            </Button>
+          </div>
+
+        </Container>
+      </nav>
+    </header>
+  )
+}
+
+========================================
+FILE: src/components/Nav/Nav.module.css
+========================================
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  background-color: var(--nav-bg);
+  border-bottom: 1px solid var(--nav-border);
+}
+
+.nav {
+  padding: var(--layout-header-padding-y) 0;
+}
+
+.navInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+  font-family: 'Gotham', sans-serif;
+  font-weight: 900;
+  font-size: var(--typography-size-xl);
+  letter-spacing: var(--typography-letter-spacing-tight);
+  color: var(--text-color-primary);
+  text-transform: uppercase;
+}
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  padding: var(--spacing-2);
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: background-color var(--motion-fast);
+}
+
+.hamburger:hover {
+  background-color: var(--surface-raised);
+}
+
+.hamburger:focus-visible {
+  outline: 2px solid var(--focus-ring-color);
+  outline-offset: 2px;
+}
+
+.hamburgerLine {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: var(--text-color-primary);
+  border-radius: 2px;
+  transition: transform 250ms ease, opacity 200ms ease;
+  transform-origin: center;
+}
+
+.hamburger[aria-expanded="true"] .hamburgerLine:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.hamburger[aria-expanded="true"] .hamburgerLine:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.hamburger[aria-expanded="true"] .hamburgerLine:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: var(--nav-bg);
+  border-bottom: 1px solid var(--nav-border);
+  padding: var(--spacing-4) var(--layout-header-padding-x);
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: opacity 200ms ease, transform 200ms ease, visibility 0ms linear 200ms;
+  pointer-events: none;
+}
+
+.menu.open {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 200ms ease, transform 200ms ease, visibility 0ms;
+  pointer-events: auto;
+}
+
+.links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1);
+}
+
+.link {
+  display: block;
+  padding: var(--spacing-3) var(--spacing-2);
+  font-family: 'Gotham', sans-serif;
+  font-weight: var(--typography-weight-medium);
+  font-size: var(--typography-size-sm);
+  letter-spacing: var(--typography-letter-spacing-button);
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--nav-item-color);
+  border-radius: var(--radius-sm);
+  transition: color var(--motion-fast), background-color var(--motion-fast);
+}
+
+.link:hover {
+  color: var(--text-color-primary);
+  background-color: var(--surface-raised);
+}
+
+.link.active {
+  color: var(--nav-item-color-active);
+}
+
+.link:focus-visible {
+  outline: 2px solid var(--focus-ring-color);
+  outline-offset: 2px;
+}
+
+.divider {
+  height: 1px;
+  background-color: var(--nav-border);
+  margin: var(--spacing-2) 0;
+}
+
+.cta {
+  width: 100%;
+  justify-content: center;
+  padding: var(--spacing-3) var(--spacing-5);
+}
+
+@media (min-width: 768px) {
+  .hamburger {
+    display: none;
+  }
+
+  .menu {
+    position: static;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--layout-header-navbar-gap-x);
+    padding: 0;
+    background: none;
+    border: none;
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+    transition: none;
+    pointer-events: auto;
+  }
+
+  .links {
+    flex-direction: row;
+    gap: 0;
+  }
+
+  .divider {
+    display: none;
+  }
+
+  .cta {
+    width: auto;
+  }
+}
+
+========================================
+FILE: src/components/Hero/Hero.jsx
+========================================
+import styles from './Hero.module.css'
+import Button from '../ui/Button/Button'
+
+export default function Hero() {
+  return (
+    <section className={styles.hero}>
+
+      <div className={styles.pill}>
+        <span className={styles.pillText}>Agencia Creativa</span>
+      </div>
+
+      <h1 className={styles.heading}>
+        No hacemos marketing, hacemos que tenga sentido.
+      </h1>
+
+      <p className={styles.subtitle}>
+        Campaigns content and experiences that convert.
+      </p>
+
+      <div className={styles.cta}>
+        <Button href="#contact" variant="secondary">Schedule a call</Button>
+        <Button href="#work" variant="primary">View Work</Button>
+      </div>
+
+    </section>
+  )
+}
+
+========================================
+FILE: src/components/Hero/Hero.module.css
+========================================
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-4);
+  min-height: clamp(420px, 70vh, 720px);
+  padding: var(--spacing-12) var(--spacing-4);
+  width: 100%;
+  background-color: var(--surface-subtle);
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--surface-subtle);
+  border: var(--pill-base-border-width) solid var(--pill-informative-border);
+  border-radius: var(--pill-base-radius);
+  padding: var(--pill-base-padding-y) var(--pill-base-padding-x);
+}
+
+.pillText {
+  font-family: 'Gotham', sans-serif;
+  font-weight: var(--typography-weight-bold);
+  font-size: var(--typography-size-sm);
+  line-height: var(--typography-size-2xl);
+  letter-spacing: var(--typography-letter-spacing-button);
+  text-transform: uppercase;
+  color: var(--pill-informative-text);
+  white-space: nowrap;
+}
+
+.heading {
+  width: 100%;
+  max-width: 1100px;
+  font-family: 'Gotham', sans-serif;
+  font-weight: 900;
+  font-size: clamp(2rem, 9vw, var(--typography-size-display-xl));
+  line-height: 0.9;
+  letter-spacing: clamp(-3.2px, -0.25vw, -1.2px);
+  text-transform: uppercase;
+  color: var(--text-color-primary);
+  text-align: center;
+}
+
+.subtitle {
+  font-family: 'Gotham', sans-serif;
+  font-weight: 325;
+  font-size: var(--typography-size-md);
+  line-height: var(--spacing-6);
+  letter-spacing: var(--typography-letter-spacing-tight, -0.2px);
+  color: var(--text-color-secondary);
+  text-align: center;
+}
+
+.cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-3);
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    padding: var(--spacing-12) var(--spacing-8);
+  }
+  .heading {
+    font-size: clamp(2.5rem, 8vw, var(--typography-size-5xl));
+    letter-spacing: clamp(-2.5px, -0.3vw, -1.8px);
+  }
+  .subtitle {
+    font-size: var(--typography-size-xl);
+  }
+  .cta {
+    flex-direction: row;
+    width: auto;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    padding: var(--spacing-16) var(--spacing-6);
+    gap: var(--spacing-4);
+  }
+  .heading {
+    font-size: clamp(3rem, 7vw, var(--typography-size-display-xl));
+    letter-spacing: clamp(-3.5px, -0.35vw, -2.5px);
+    width: 90%;
+  }
+}
+
+========================================
+FILE: src/components/LogoStrip/LogoStrip.jsx
+========================================
+import styles from './LogoStrip.module.css'
+
+const CLIENTS = ['Claro', 'Chevrolet', 'Novasis', 'Vida Nica', 'Drytec', 'Flor de Caña', 'Super Express']
+
+export default function LogoStrip() {
+  return (
+    <section className={styles.strip} aria-label="Clientes">
+      <div className={styles.track} role="marquee" aria-live="off">
+        <ul className={styles.list}>
+          {CLIENTS.map(name => (
+            <li key={name} className={styles.item}>{name}</li>
+          ))}
+        </ul>
+        <ul className={styles.list} aria-hidden="true">
+          {CLIENTS.map(name => (
+            <li key={name} className={styles.item}>{name}</li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )
+}
+
+========================================
+FILE: src/components/LogoStrip/LogoStrip.module.css
+========================================
+.strip {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--background-page);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: var(--spacing-6) 0;
+}
+
+.strip::before,
+.strip::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 120px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.strip::before {
+  left: 0;
+  background: linear-gradient(to right, var(--background-page) 0%, transparent 100%);
+}
+
+.strip::after {
+  right: 0;
+  background: linear-gradient(to left, var(--background-page) 0%, transparent 100%);
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  animation: marquee 32s linear infinite;
+}
+
+.track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track {
+    animation: none;
+  }
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  flex-shrink: 0;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  padding: 0 var(--spacing-8);
+  font-family: 'Gotham', sans-serif;
+  font-weight: var(--typography-weight-bold);
+  font-size: var(--typography-size-xl);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-color-secondary);
+  white-space: nowrap;
+  transition: color 200ms ease;
+  cursor: default;
+  user-select: none;
+}
+
+.item:hover {
+  color: var(--text-color-primary);
+}
+
+.item::after {
+  content: '·';
+  margin-left: var(--spacing-8);
+  color: var(--brand-main);
+  font-weight: 900;
+  line-height: 1;
+}
+

@@ -62,16 +62,16 @@
 
 .input {
   width: 100%;
-  background-color: var(--surface-raised);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-sm);
-  padding: var(--spacing-3) var(--spacing-4);
+  background-color: var(--input-bg);
+  border: var(--border-width-hairline) solid var(--input-border);
+  border-radius: var(--input-radius);
+  padding: var(--input-padding-y) var(--input-padding-x);
   font-family: 'Gotham', sans-serif;
   font-weight: var(--typography-weight-regular);
   font-size: var(--typography-size-md);
   color: var(--text-color-primary);
   outline: none;
-  transition: border-color var(--motion-fast, 150ms ease);
+  transition: border-color calc(var(--motion-fast, 150) * 1ms) ease;
   -webkit-appearance: none;
   appearance: none;
 }
@@ -82,7 +82,8 @@
 }
 
 .input:focus {
-  border-color: var(--border-brand);
+  background-color: var(--input-bg-focus);
+  border-color: var(--input-border-focus);
 }
 
 .textarea {
