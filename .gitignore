@@ -2,12 +2,11 @@
 node_modules/
 
 # design system
-design-system/tokens/build/
 design-system/tokens/node_modules/
 
 # build output
 dist/
-build/
+/build/
 
 # logs
 *.log
