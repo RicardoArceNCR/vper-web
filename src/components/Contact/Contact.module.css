@@ -1,0 +1,119 @@
+.contact {
+  width: 100%;
+  background-color: var(--surface-base);
+  padding: var(--spacing-16) var(--layout-header-padding-x);
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.title {
+  font-family: 'Gotham', sans-serif;
+  font-weight: 900;
+  font-size: var(--typography-size-display);
+  line-height: 1.05;
+  letter-spacing: -1.5px;
+  text-transform: uppercase;
+  color: var(--text-color-primary);
+  margin-bottom: var(--spacing-4);
+}
+
+.title::after {
+  content: '.';
+  color: var(--brand-main);
+}
+
+.desc {
+  font-family: 'Gotham', sans-serif;
+  font-weight: var(--typography-weight-regular);
+  font-size: var(--typography-size-md);
+  line-height: var(--spacing-6);
+  letter-spacing: -0.2px;
+  color: var(--text-color-secondary);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-5);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-5);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.label {
+  font-family: 'Gotham', sans-serif;
+  font-weight: var(--typography-weight-medium);
+  font-size: var(--typography-size-sm);
+  letter-spacing: var(--typography-letter-spacing-button);
+  text-transform: uppercase;
+  color: var(--text-color-secondary);
+}
+
+.input {
+  width: 100%;
+  background-color: var(--surface-raised);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: var(--spacing-3) var(--spacing-4);
+  font-family: 'Gotham', sans-serif;
+  font-weight: var(--typography-weight-regular);
+  font-size: var(--typography-size-md);
+  color: var(--text-color-primary);
+  outline: none;
+  transition: border-color 150ms ease;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.input::placeholder {
+  color: var(--text-color-secondary);
+  opacity: 0.4;
+}
+
+.input:focus {
+  border-color: var(--border-brand);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+.submit {
+  width: 100%;
+  max-width: none;
+}
+
+@media (min-width: 640px) {
+  .row { grid-template-columns: 1fr 1fr; }
+}
+
+@media (min-width: 768px) {
+  .contact { padding: var(--spacing-16) var(--spacing-8); }
+}
+
+@media (min-width: 1024px) {
+  .contact { padding: var(--spacing-16) var(--spacing-6); }
+  .inner {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: var(--spacing-16);
+  }
+  .info { flex: 0 0 360px; }
+  .form { flex: 1; }
+}

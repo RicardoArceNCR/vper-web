@@ -24,7 +24,7 @@ export default {
       },
       bg: {
         $type: "color",
-        $value: "#f98516",
+        $value: "#d55856",
         filePath: "source/componentes.json",
         isSource: true,
         original: {
@@ -75,7 +75,7 @@ export default {
       },
       border: {
         $type: "color",
-        $value: "#f98516",
+        $value: "#d55856",
         filePath: "source/componentes.json",
         isSource: true,
         original: {
@@ -92,7 +92,7 @@ export default {
       },
       "focus-ring": {
         $type: "color",
-        $value: "#f98516",
+        $value: "#d55856",
         filePath: "source/componentes.json",
         isSource: true,
         original: {
@@ -264,7 +264,7 @@ export default {
       },
       "focus-ring": {
         $type: "color",
-        $value: "#f98516",
+        $value: "#d55856",
         filePath: "source/componentes.json",
         isSource: true,
         original: {
@@ -1107,7 +1107,7 @@ export default {
     },
     "border-focus": {
       $type: "color",
-      $value: "#f98516",
+      $value: "#d55856",
       filePath: "source/componentes.json",
       isSource: true,
       original: {
@@ -1207,7 +1207,7 @@ export default {
       },
       "color-active": {
         $type: "color",
-        $value: "#f98516",
+        $value: "#d55856",
         filePath: "source/componentes.json",
         isSource: true,
         original: {
@@ -3778,12 +3778,12 @@ export default {
   brand: {
     main: {
       $type: "color",
-      $value: "#f98516",
+      $value: "#d55856",
       filePath: "source/semanticos.json",
       isSource: true,
       original: {
         $type: "color",
-        $value: "{color.brand.orange.500}",
+        $value: "{color.brand.red.500}",
       },
       name: "BrandMain",
       attributes: {
@@ -4079,7 +4079,7 @@ export default {
     },
     brand: {
       $type: "color",
-      $value: "#f98516",
+      $value: "#d55856",
       filePath: "source/semanticos.json",
       isSource: true,
       original: {
@@ -4525,7 +4525,7 @@ export default {
   focus: {
     "ring-color": {
       $type: "color",
-      $value: "#f98516",
+      $value: "#d55856",
       filePath: "source/semanticos.json",
       isSource: true,
       original: {
@@ -4709,7 +4709,7 @@ export default {
     link: {
       default: {
         $type: "color",
-        $value: "#f98516",
+        $value: "#d55856",
         filePath: "source/semanticos.json",
         isSource: true,
         original: {
@@ -4887,7 +4887,7 @@ export default {
     focus: {
       ring: {
         $type: "color",
-        $value: "#f98516",
+        $value: "#d55856",
         filePath: "source/semanticos.json",
         isSource: true,
         original: {
@@ -5103,7 +5103,7 @@ export default {
     },
     primary: {
       $type: "color",
-      $value: "#f98516",
+      $value: "#d55856",
       filePath: "source/semanticos.json",
       isSource: true,
       original: {

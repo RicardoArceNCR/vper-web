@@ -10,7 +10,14 @@
       "Bash(git add *)",
       "Bash(git commit *)",
       "Bash(git tag *)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "Bash(git -C /Users/ricardo/vper-web status)",
+      "Bash(git *)",
+      "Bash(gh api *)",
+      "Bash(curl -s http://localhost:5173)",
+      "Bash(curl -s http://localhost:5173/src/main.jsx)",
+      "Bash(curl -s \"http://localhost:5173/design-system/tokens/build/tokens.css\")",
+      "Bash(pkill -f \"vite --port 5173\")"
     ]
   }
 }

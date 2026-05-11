@@ -1,0 +1,202 @@
+.work {
+  width: 100%;
+  padding: var(--spacing-16) var(--layout-header-padding-x);
+  background-color: var(--surface-subtle);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-6);
+  margin-bottom: var(--spacing-10);
+}
+
+@media (min-width: 768px) {
+  .header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    gap: var(--spacing-8);
+  }
+}
+
+.title {
+  font-family: 'Gotham', sans-serif;
+  font-weight: 900;
+  font-size: var(--typography-size-display);
+  line-height: 1.05;
+  letter-spacing: -1.5px;
+  text-transform: uppercase;
+  color: var(--text-color-primary);
+}
+
+.title::after {
+  content: '.';
+  color: var(--brand-main);
+}
+
+.subtitle {
+  font-family: 'Gotham', sans-serif;
+  font-weight: var(--typography-weight-regular);
+  font-size: var(--typography-size-md);
+  line-height: var(--spacing-6);
+  letter-spacing: -0.2px;
+  color: var(--text-color-secondary);
+  text-align: center;
+}
+
+.filters {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: var(--spacing-2);
+  justify-content: flex-start;
+}
+
+@media (min-width: 768px) {
+  .filters {
+    justify-content: flex-end;
+  }
+}
+
+.filterBtn {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--pill-base-padding-y) var(--pill-base-padding-x);
+  border-radius: var(--pill-base-radius);
+  border: var(--pill-base-border-width) solid var(--border-inverse);
+  background: transparent;
+  font-family: 'Gotham', sans-serif;
+  font-weight: var(--typography-weight-bold);
+  font-size: var(--typography-size-sm);
+  letter-spacing: var(--typography-letter-spacing-button);
+  text-transform: uppercase;
+  color: var(--text-color-primary);
+  cursor: pointer;
+  transition: color 150ms ease, border-color 150ms ease, background-color 150ms ease;
+  white-space: nowrap;
+}
+
+.filterBtn:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.filterBtn.active {
+  background-color: var(--brand-main);
+  border-color: var(--brand-main);
+  color: var(--brand-contrast);
+}
+
+.filterBtn:focus-visible {
+  outline: 2px solid var(--focus-ring-color);
+  outline-offset: 2px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-6);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  cursor: pointer;
+  transition: opacity 250ms ease, transform 250ms ease;
+}
+
+.card.hidden {
+  opacity: 0;
+  transform: scale(0.97);
+  pointer-events: none;
+}
+
+.cardMedia {
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  position: relative;
+}
+
+.cardPlaceholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--surface-raised);
+  transition: transform 400ms ease;
+}
+
+.card:hover .cardPlaceholder {
+  transform: scale(1.03);
+}
+
+.cardPlaceholderLabel {
+  font-family: 'Gotham', sans-serif;
+  font-weight: 900;
+  font-size: var(--typography-size-sm);
+  letter-spacing: var(--typography-letter-spacing-button);
+  text-transform: uppercase;
+  color: var(--text-color-secondary);
+  opacity: 0.4;
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1);
+}
+
+.cardTag {
+  display: inline-block;
+  align-self: flex-start;
+  padding: var(--pill-base-padding-y) var(--pill-base-padding-x);
+  border-radius: var(--pill-base-radius);
+  border: var(--pill-base-border-width) solid var(--border-subtle);
+  font-family: 'Gotham', sans-serif;
+  font-weight: var(--typography-weight-bold);
+  font-size: var(--typography-size-xs, 12px);
+  letter-spacing: var(--typography-letter-spacing-button);
+  text-transform: uppercase;
+  color: var(--text-color-secondary);
+}
+
+.cardTitle {
+  font-family: 'Gotham', sans-serif;
+  font-weight: 900;
+  font-size: var(--typography-size-xl);
+  line-height: 1.1;
+  letter-spacing: -0.3px;
+  color: var(--text-color-primary);
+  text-transform: uppercase;
+}
+
+.cardSubtitle {
+  font-family: 'Gotham', sans-serif;
+  font-weight: var(--typography-weight-regular);
+  font-size: var(--typography-size-sm);
+  line-height: var(--spacing-6);
+  color: var(--text-color-secondary);
+}
+
+@media (min-width: 640px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 768px) {
+  .work { padding: var(--spacing-16) var(--spacing-8); }
+}
+
+@media (min-width: 1024px) {
+  .work {
+    padding: var(--spacing-16) var(--spacing-6);
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-8);
+  }
+}
