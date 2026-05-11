@@ -2,7 +2,7 @@
   "brand": {
     "main": {
       "$type": "color",
-      "$value": "{color.brand.blue.500}"
+      "$value": "{color.brand.orange.500}"
     },
     "subtle": {
       "$type": "color",

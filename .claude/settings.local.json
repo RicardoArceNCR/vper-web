@@ -5,7 +5,12 @@
       "Bash(mkdir -p /Users/ricardo/vper-web/design-system/tokens/build)",
       "Bash(npm install *)",
       "Bash(python3 *)",
-      "Bash(npm run *)"
+      "Bash(npm run *)",
+      "Bash(git rm *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git tag *)",
+      "Bash(git push *)"
     ]
   }
 }
