@@ -1,0 +1,84 @@
+{
+  "opacity": {
+    "04": {
+      "$type": "float",
+      "$value": 0.03999999910593033
+    },
+    "08": {
+      "$type": "float",
+      "$value": 0.07999999821186066
+    },
+    "42": {
+      "$type": "float",
+      "$value": 0.41999998688697815
+    },
+    "60": {
+      "$type": "float",
+      "$value": 0.6000000238418579
+    },
+    "72": {
+      "$type": "float",
+      "$value": 0.7200000286102295
+    },
+    "80": {
+      "$type": "float",
+      "$value": 0.800000011920929
+    },
+    "50": {
+      "$type": "float",
+      "$value": 0.5
+    }
+  },
+  "breakpoint": {
+    "sm": {
+      "$type": "float",
+      "$value": 640
+    },
+    "md": {
+      "$type": "float",
+      "$value": 768
+    },
+    "lg": {
+      "$type": "float",
+      "$value": 1024
+    },
+    "xl": {
+      "$type": "float",
+      "$value": 1280
+    }
+  },
+  "scale": {
+    "md": {
+      "$type": "float",
+      "$value": 16
+    },
+    "lg": {
+      "$type": "float",
+      "$value": 24
+    },
+    "2xl": {
+      "$type": "float",
+      "$value": 48
+    },
+    "sm": {
+      "$type": "float",
+      "$value": 8
+    },
+    "xs": {
+      "$type": "float",
+      "$value": 4
+    },
+    "xl": {
+      "$type": "float",
+      "$value": 32
+    },
+    "3xl": {
+      "$type": "float",
+      "$value": 64
+    },
+    "4xl": {
+      "$type": "float",
+      "$value": 96
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p /Users/ricardo/vper-web/design-system/tokens/source)",
+      "Bash(mkdir -p /Users/ricardo/vper-web/design-system/tokens/build)",
+      "Bash(npm install *)",
+      "Bash(python3 *)",
+      "Bash(npm run *)"
+    ]
+  }
+}
